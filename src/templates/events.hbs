@@ -2,7 +2,13 @@
 <li class='event-card'>
     <div class="rose-border"></div>
     <div class="img-trumb">
-    <img class="event-img" src='{{images.2.url}}' alt='{{name}}' />
+    <img class="event-img" alt='{{name}}' 
+     src='{{images.1.url}}'
+       srcset='
+    {{images.2.url}}  640w,
+    {{images.3.url}} 1024w,
+    {{images.5.url}} 1152w
+  '/>
     </div>
     <div class="event-info">
         <h2 class="event-name">{{name}}</h2>
