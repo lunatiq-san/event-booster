@@ -113,7 +113,7 @@
 
     @media (min-width: 768px) {
         font-size: 16px;
-        line-height: 20px;  
+        line-height: 20px;
     }
 }
 
@@ -123,7 +123,7 @@
 
        @media (min-width: 768px) {
         font-size: 16px;
-        line-height: 20px;  
+        line-height: 20px;
     }
 }
 
@@ -133,17 +133,17 @@
 
        @media (min-width: 768px) {
         font-size: 14px;
-        line-height: 17px;    
+        line-height: 17px;
     }
 
 }
 
-// .location::before {
-//     content: url(../images/symbol-defs.svg#placeholder);
-// //    background-image: url('../images/symbol-defs.svg#placeholder');
-//     fill: $main-text-color;
-//   display: inline-block;
-//   width: 7px;
-//   height: 10px;
+.location::before {
+    content: url(../images/geo.png);
+    fill: $main-text-color;
+    display: inline-block;
+    width: 7px;
+    height: 10px;
+    margin-right: 3px;
 
-// }
+}
