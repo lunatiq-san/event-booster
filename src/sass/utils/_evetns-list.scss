@@ -1,0 +1,88 @@
+@import './utils/placeholders';
+
+
+
+.events-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: 25px;
+    margin-left: 25px;
+
+    background-color: black;
+}
+
+.event-card {
+    display: block;
+    width: 128px;
+    min-height: 231px;
+    margin-bottom: 33px;
+    position: relative;
+}
+
+.rose-border {
+    position: absolute;
+    width: 109px;
+    height: 101px;
+    right: 0px;
+    top: -9px;
+
+    border: 1px solid $rose-border-color;
+    // box-sizing: border-box;
+    border-radius: 50px 0px;        
+}
+
+.img-trumb {
+    height: 161px;
+    width: 128px; 
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black ;
+    border-radius: 50% 0 50% 0;
+    overflow: hidden;
+}
+
+.img-trumb > img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+}
+
+.event-info {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 138px;
+    padding: 10px;
+}
+
+
+
+.event-name {
+    @extend %event-name-text;
+    display: flex;
+    align-items: center;
+    
+    margin-bottom: 5px;
+}
+
+.event-data {
+    @extend %event-date-text;
+    display: flex;
+   align-items: center;
+
+   margin-bottom: 5px;
+}
+
+.location {
+   @extend %event-place-text;
+   display: flex;
+   align-items: center;
+
+   margin-bottom: 5px;
+
+}
