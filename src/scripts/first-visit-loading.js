@@ -21,4 +21,4 @@ function renderEvent(events) {
 }
 
 
-window.addEventListener('load', fetchEventsDefault());
+window.addEventListener('load', fetchEventsDefault);
