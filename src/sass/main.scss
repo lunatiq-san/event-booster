@@ -9,7 +9,9 @@
 @import './utils/visually-hidden';
 @import './utils/breakpoints';
 @import './utils/fonts';
+@import './base/container';
 @import './utils/placeholders';
 @import './utils/events-list';
 
+@import './components/section-cards';
 @import './components/footer.scss';
