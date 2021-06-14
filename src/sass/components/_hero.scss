@@ -1,0 +1,29 @@
+.hero > .container {
+  padding-top: 78px;
+  padding-bottom: 112px;
+  @media screen and (min-width: $tablet) {
+    padding-top: 40px;
+    padding-bottom: 183px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding-top: 40px;
+    padding-bottom: 191px;
+  }
+}
+
+.hero-title {
+  @extend %hero-title;
+  margin-bottom: 25px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 27px;
+    font-size: 30px;
+    line-height: 37px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 52px;
+    font-size: 50px;
+    line-height: 61px;
+  }
+  text-align: center;
+}
