@@ -1,0 +1,38 @@
+.footer {
+  background-color: transparent;
+  margin-bottom: 27px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: $secondary-text-color;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+
+  @media (min-width: $tablet) {
+    margin-bottom: 18px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+  @media (min-width: $desktop) {
+    margin-bottom: 19px;
+  }
+}
+.footer-text {
+  @media (max-width: $mobile-max) {
+    width: 252px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.footer-icon {
+  font-size: 80%;
+  color: #ff0000;
+  background: linear-gradient(to top, #ff0000 24%, #ffffcc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #ff0000;
+}
