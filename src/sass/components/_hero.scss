@@ -1,29 +1,35 @@
-.hero > .container {
-  padding-top: 78px;
-  padding-bottom: 112px;
-  @media screen and (min-width: $tablet) {
-    padding-top: 40px;
-    padding-bottom: 183px;
-  }
-  @media screen and (min-width: $desktop) {
-    padding-top: 40px;
-    padding-bottom: 191px;
-  }
-}
+// .hero > .container {
+//   padding-top: 78px;
+//   padding-bottom: 112px;
+//   @media screen and (min-width: $tablet) {
+//     padding-top: 40px;
+//     padding-bottom: 183px;
+//   }
+//   @media screen and (min-width: $desktop) {
+//     padding-top: 40px;
+//     padding-bottom: 191px;
+//   }
+// }
 
 .hero-title {
   @extend %hero-title;
+  display: block;
+  width: 212px;
   margin-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 
   @media screen and (min-width: $tablet) {
+    width: 353px;
     margin-bottom: 27px;
     font-size: 30px;
     line-height: 37px;
   }
   @media screen and (min-width: $desktop) {
+    width: 600px;
     margin-bottom: 52px;
     font-size: 50px;
     line-height: 61px;
   }
-  text-align: center;
 }

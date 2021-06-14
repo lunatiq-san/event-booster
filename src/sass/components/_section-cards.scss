@@ -4,4 +4,15 @@
 .events-gallery {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: $tablet) {
+    width: 614px;
+  }
+
+  @media (min-width: $desktop) {
+    width: 930px;
+  }
 }
