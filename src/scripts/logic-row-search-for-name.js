@@ -5,8 +5,10 @@ const refs = getRefs();
 
 const apiService = new NewApiService();
 
+
+const apiService = new NewApiService();
+
 function feachEventSearchForName() {
-    
 }
 
     
