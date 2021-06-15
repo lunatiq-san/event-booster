@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-img top">
+        <img src="{{images.3.url}}" alt="{{name}}">
+    </div>
+    <div class="card-body">
+        <div class="card-img left">
+            <img src="{{images.2.url}}" alt="{{name}}">
+        </div>
+        <h3 class="card-title">INFO</h3>
+        <p class="card-text">????</p>
+        <h3 class="card-title">WHEN</h3>
+        <p class="card-text">{{dates.start.localDate}} <br> {{dates.start.localTime}} ({{dates.timezone}}) </p>
+        <h3 class="card-title">WHERE</h3>
+        <p class="card-text">{{_embedded.venues.0.city.name}}, {{_embedded.venues.0.country.name}} <br> {{_embedded.venues.0.name}}</p>
+        <h3 class="card-title">WHO</h3>
+        <p class="card-text">{{name}}</p>
+        <h3 class="card-title">PRICES</h3>
+        <p class="card-text">{{priceRanges.0.type}} {{priceRanges.0.min}} - {{priceRanges.0.max}} {{priceRanges.0.currency}}</p>
+        <button type="button" class="lightbox__button" data-action="more-events">BUY TICKETS</button>
+        <p class="card-text">????</p>
+        <button type="button" class="lightbox__button" data-action="more-events">BUY TICKETS</button>
+    </div>
+    <button type="button" class="lightbox__button" data-action="more-events">MORE FROM THIS AUTHOR</button>
+</div>
