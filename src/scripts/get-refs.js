@@ -3,6 +3,7 @@ export default function getRefs() {
     eventsList: document.querySelector('.js-events-list'),
     lightbox: document.querySelector('.js-lightbox'),
     lightboxContent: document.querySelector('.lightbox__content'),
-    closeLightboxBtn: document.querySelector('[data-action="close-lightbox"]')
+    closeLightboxBtn: document.querySelector('[data-action="close-lightbox"]'),
+    lightboxBackdrop: document.querySelector('div.lightbox__overlay')
   };
 }
