@@ -5,6 +5,7 @@ export default class ApiService {
     constructor() {
         this.searchQuery = '';
         this.page = 1;
+        this.id = ' ';
     }
 
     fetchEventsDefault() {
@@ -18,7 +19,21 @@ export default class ApiService {
                 return events;
             });
     };
-    
+
+    searchEventById() {
+        console.log(this.id);
+        return fetch(`${BASE_URL}/events/${this.id}.json?apikey=${KEY}`)
+            .then(response => response.json())
+            .then(currentEvent => {
+                console.log(currentEvent);
+                return currentEvent;
+            });
+    };
+
+    // set id(newId) {
+    //     this.id = newId;
+    // }
+        
 }
 
 
