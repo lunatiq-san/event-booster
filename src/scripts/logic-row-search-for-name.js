@@ -5,10 +5,11 @@ const refs = getRefs();
 
 const apiService = new NewApiService();
 
+refs.searchQuery.addEventListener('input', feachEventSearchForName);
 
-const apiService = new NewApiService();
-
-function feachEventSearchForName() {
+function feachEventSearchForName(e) {
+    const searchQuery = e.target.value;
+    apiService.fetchEventsSearchQuery(searchQuery).then(r => console.log(r));
 }
 
     

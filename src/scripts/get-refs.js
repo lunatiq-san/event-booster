@@ -4,5 +4,6 @@ export default function getRefs() {
     lightbox: document.querySelector('.js-lightbox'),
     lightboxContent: document.querySelector('.lightbox__content'),
     closeLightboxBtn: document.querySelector('[data-action="close-lightbox"]'),
+    searchQuery: document.querySelector('.search-input'),
   };
 }

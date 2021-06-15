@@ -27,6 +27,18 @@ export default class ApiService {
                 return currentEvent;
             });
     };
+    fetchEventsSearchQuery() {
+        const url = `${BASE_URL}/events.json?keyword=${this.searchQuery}&source=universe&apikey=${KEY}&size=21&page=1`;
+            return fetch(url)
+                .then(response => response.json())
+                .then(({ _embedded }) => {
+                    return _embedded;
+                })
+                .then(({ events }) => {
+                    return events;
+                });
+        };
+        
     // set id(newId) {
     //     this.id = newId;
     // }
