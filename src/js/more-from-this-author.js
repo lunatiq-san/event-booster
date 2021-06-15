@@ -1,17 +1,29 @@
-function more() {
-  return fetch(
-    'https://app.ticketmaster.com/discovery/v2/events.json?name=Losangeles&source=universe&apikey=6lOpp5Vggq59Gw99EgHfgH1fvYexhNFuu',
-  )
-    .then(response => {
-      return response.json();
-    })
-    .catch(error => {
-      console.log('Request error:', error);
-    });
+const KEY = 'Xy0VDFihRxcZE0J3kNsMVc7AsbVJVwmN';
+const BASE_URL = 'https://app.ticketmaster.com/discovery/v2';
+
+export default class ApiService {
+  constructor() {
+    this.searchQuery = '';
+    this.page = 1;
+  }
+
+  fetchEventsDefault() {
+    const url = `${BASE_URL}/events.json?keyword=${'Dallas'}&apikey=${KEY}&size=21&page=1`;
+    return fetch(url)
+      .then(response => response.json())
+      .then(({ _embedded }) => {
+        return _embedded;
+      })
+      .then(({ events }) => {
+        return events;
+      });
+  }
 }
 
-console.log(more());
-
+const moreBtn = new ApiService();
+console.log(moreBtn.fetchEventsDefault());
 // Получить данные с модалки
+
 // по кнопке делать запрос на основании данных с карточки
+
 // вывести релевантные поиску карточки на основной экран
