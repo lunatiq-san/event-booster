@@ -5,6 +5,7 @@ export default class ApiService {
     constructor() {
         this.searchQuery = '';
         this.page = 1;
+        this.id = ' ';
     }
     fetchEventsDefault() {
         const windowInnerWidth = window.innerWidth
@@ -19,7 +20,7 @@ export default class ApiService {
         .then(({ events }) => {
             return events;
         });
-
+            
         function onSize() {
             if (windowInnerWidth >= 1280 || windowInnerWidth < 768) {
             return 20;
@@ -29,28 +30,21 @@ export default class ApiService {
         }
     };
 
-    // fetchEventsDefault() {
-    //     const url = `${BASE_URL}/events.json?&apikey=${KEY}&size=${this.size}&page=1`;
-    //     return fetch(url)
-    //         .then(response => response.json())
-    //         .then(({ _embedded }) => {
-    //             return _embedded;
-    //         })
-    //         .then(({ events }) => {
-    //             return events;
-    //         });
-    // };
-    // onSize() {
-    //     const windowInnerWidth = window.innerWidth
-    //     console.log(windowInnerWidth);
-    //     if (windowInnerWidth >= 1280 || windowInnerWidth < 768) {
-    //          this.size = 20;
-    //         return this.size;
-    //     } else {
-    //          this.size = 21;
-    //         return this.size;
-    //     }
-    //     // return this.size;
-    // };
-
+    searchEventById() {
+        console.log(this.id);
+        return fetch(`${BASE_URL}/events/${this.id}.json?apikey=${KEY}`)
+            .then(response => response.json())
+            .then(currentEvent => {
+                console.log(currentEvent);
+                return currentEvent;
+            });
     };
+
+    // set id(newId) {
+    //     this.id = newId;
+    // }
+}
+
+
+
+

@@ -10,6 +10,14 @@
 @import './utils/breakpoints';
 @import './utils/fonts';
 @import './utils/placeholders';
-@import './utils/events-list';
+// @import './utils/events-list';
+@import './components/footer';
+@import './base/container';
+@import './utils/placeholders';
+@import './components/events-list';
+@import './components/hero';
+@import './components/section-cards';
+@import './components/footer';
+@import './components/lightbox';
+@import './components/search-fields';
 
-@import './components/footer.scss';
