@@ -20,19 +20,15 @@ export default class ApiService {
             });
     };
 
-    searchEventById() {
-        console.log(this.id);
-        return fetch(`${BASE_URL}/events/${this.id}.json?apikey=${KEY}`)
-            .then(response => response.json())
-            .then(currentEvent => {
-                console.log(currentEvent);
-                return currentEvent;
-            });
+    async searchEventById() {
+        try {
+            const response = await fetch(`${BASE_URL}/events/${this.id}.json?apikey=${KEY}`);
+            const currentEvent = await response.json();
+            return currentEvent;
+        } catch (err) {
+            console.log(err)
+        };
     };
-
-    // set id(newId) {
-    //     this.id = newId;
-    // }
         
 }
 
