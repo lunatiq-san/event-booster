@@ -32,6 +32,18 @@ export default class ApiService {
         }
     };
 
+  fetchEventsByName(name) {
+    const url = `${BASE_URL}/events.json?&keyword=${name}&apikey=${KEY}&size=${this.perPage}&page=${this.page}`;
+    return fetch(url)
+      .then(response => response.json())
+      .then(({ _embedded }) => {
+        return _embedded;
+      })
+      .then(({ events }) => {
+        return events;
+      });
+  }
+
   searchEventById() {
     console.log(this.id);
     return fetch(`${BASE_URL}/events/${this.id}.json?apikey=${KEY}`)
