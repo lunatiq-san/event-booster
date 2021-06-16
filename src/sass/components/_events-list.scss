@@ -1,5 +1,9 @@
 @import './utils/placeholders';
 
+.events > .container {
+  padding-bottom: 60px;
+}
+
 .event-card {
   display: block;
   width: 128px;
