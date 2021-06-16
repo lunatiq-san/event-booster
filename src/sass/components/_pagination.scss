@@ -35,6 +35,7 @@
   padding: 8px 0 6px;
   margin-left: 0;
   color: $main-text-color;
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: normal;
   line-height: 1;
@@ -42,6 +43,10 @@
   vertical-align: middle;
   border-radius: 10px 0px;
   transition: $timing-function;
+
+  @media screen and (max-width: $mobile-max) {
+    font-size: 14px;
+  }
 }
 
 .tui-pagination .tui-page-btn:not(:last-child) {
