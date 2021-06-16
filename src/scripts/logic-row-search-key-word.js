@@ -6,9 +6,9 @@ const refs = getRefs();
 
 const apiService = new NewApiService();
 
-refs.searchQuery.addEventListener('input', debounce(feachEventSearchForName, 500));
+refs.searchQuery.addEventListener('input', debounce(feachEventSearchKeyWord, 500));
 
-function feachEventSearchForName(e) {
+function feachEventSearchKeyWord(e) {
     const searchQuery = e.target.value;
     apiService.fetchEventsSearchQuery(searchQuery).then(r => console.log(r));
 }
