@@ -2,16 +2,38 @@ const KEY = 'Xy0VDFihRxcZE0J3kNsMVc7AsbVJVwmN';
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2';
 
 export default class ApiService {
-  constructor() {
+    constructor() {
     this.searchQuery = '';
     this.page = 1;
     this.perPage = 20;
     this.totalElements = null;
     this.id = ' ';
-  }
+    }
 
-  fetchEventsDefault() {
-    const url = `${BASE_URL}/events.json?&apikey=${KEY}&size=${this.perPage}&page=${this.page}`;
+    fetchEventsDefault() {
+        const windowInnerWidth = window.innerWidth
+        const size = onSize();
+        const url = `${BASE_URL}/events.json?&apikey=${KEY}&size=${size}&page=${this.page}`;
+        return fetch(url)
+        .then(response => response.json())
+        .then(({ _embedded }) => {
+            return _embedded;
+        })
+        .then(({ events }) => {
+            return events;
+        });
+            
+        function onSize() {
+            if (windowInnerWidth >= 1280 || windowInnerWidth < 768) {
+            return 20;
+        } else {
+                return 21;
+            }
+        }
+    };
+
+  fetchEventsByName(name) {
+    const url = `${BASE_URL}/events.json?&keyword=${name}&apikey=${KEY}&size=${this.perPage}&page=${this.page}`;
     return fetch(url)
       .then(response => response.json())
       .then(({ _embedded }) => {
@@ -40,3 +62,7 @@ export default class ApiService {
     this.page = page;
   }
 }
+
+
+
+
