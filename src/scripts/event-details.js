@@ -8,35 +8,32 @@ const apiService = new ApiService;
 refs.eventsList.addEventListener('click', openLightboxOnClick);
 
 function openLightboxOnClick(e) {
-    apiService.id = getEventId(e);
-    refs.lightbox.classList.add("is-open");
-    refs.closeLightboxBtn.addEventListener('click', closeLightboxOnClick);
-    window.addEventListener('keydown', onEscKeyPress);
-    apiService.searchEventById()
-    .then(currentEvent => renderEventCard(currentEvent));
+  let card = e.target.closest('li');
+  if (!card) return;
+  renderEventCard(card);
+  refs.lightbox.classList.add("is-open");
+  addEventListeners();
   
-}
-
-
-function getEventId(e) {
-    let card = e.target.closest('li');
-    if (!card) return;
-    return card.dataset.id;
 };
 
-function renderEventCard(currentEvent) {
-    refs.lightboxContent.insertAdjacentHTML('afterbegin', eventTpl(currentEvent));
-}
-
+function renderEventCard(card) {
+  apiService.id = card.dataset.id;
+  apiService.searchEventById()
+    .then(currentEvent => {
+      currentEvent.dates.start.localTime = currentEvent.dates.start.localTime.slice(0, -3);
+      refs.lightboxContent.insertAdjacentHTML('beforeend', eventTpl(currentEvent));
+    })
+    .catch(error => console.log(error));
+};
 
 function closeLightboxOnClick() {
-    refs.lightbox.classList.remove("is-open");
-    window.removeEventListener('keydown', onEscKeyPress);
-    refs.lightboxContent.innerHTML = ' ';
+  refs.lightbox.classList.remove("is-open");
+  removeEventListeners();
+  refs.lightboxContent.innerHTML = ' ';
     
 };
 
-function onEscKeyPress(e) {
+function closeLightboxOnEscKeyPress(e) {
   const ESC_KEY_CODE = 'Escape';
   const isEscKey = e.code === ESC_KEY_CODE;
 
@@ -44,3 +41,32 @@ function onEscKeyPress(e) {
     closeLightboxOnClick();
   }
 };
+
+function onLightboxBackdropClick(e) {
+  if (e.target === e.currentTarget) {
+    closeLightboxOnClick();
+    };
+
+};
+
+function addEventListeners() {
+   window.addEventListener('keydown', closeLightboxOnEscKeyPress);
+  refs.closeLightboxBtn.addEventListener('click', closeLightboxOnClick);
+  refs.lightboxBackdrop.addEventListener('click', onLightboxBackdropClick);
+};
+
+function removeEventListeners() {
+  window.removeEventListener('keydown', closeLightboxOnEscKeyPress);
+  refs.closeLightboxBtn.removeEventListener('click', closeLightboxOnClick);
+  refs.lightboxBackdrop.removeEventListener('click', onLightboxBackdropClick);
+};
+
+// refs.eventsList.addEventListener('keydown', openLightboxOnEnterKeydown);
+
+// function openLightboxOnEnterKeydown(e) {
+//   console.log(e.code);
+//   console.log(e.target.classList.contains('event-card'));
+//   if (e.code === 'Enter' && e.target.classList.contains('event-card')) {
+//     openLightboxOnClick(e);
+//   }
+// }
