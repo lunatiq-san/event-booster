@@ -24,7 +24,6 @@ function renderEventCard(card) {
       refs.lightboxContent.insertAdjacentHTML('beforeend', eventTpl(currentEvent));
     })
     .catch(error => console.log(error));
-
 };
 
 function closeLightboxOnClick() {
