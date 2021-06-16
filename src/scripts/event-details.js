@@ -13,10 +13,10 @@ function openLightboxOnClick(e) {
     refs.closeLightboxBtn.addEventListener('click', closeLightboxOnClick);
     window.addEventListener('keydown', onEscKeyPress);
     apiService.searchEventById()
-        .then(currentEvent=> renderEventCard(currentEvent));
-
-
+    .then(currentEvent => renderEventCard(currentEvent));
+  
 }
+
 
 function getEventId(e) {
     let card = e.target.closest('li');
@@ -25,7 +25,7 @@ function getEventId(e) {
 };
 
 function renderEventCard(currentEvent) {
-    refs.lightboxContent.insertAdjacentHTML('beforeend', eventTpl(currentEvent));
+    refs.lightboxContent.insertAdjacentHTML('afterbegin', eventTpl(currentEvent));
 }
 
 
