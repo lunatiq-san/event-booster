@@ -1,5 +1,21 @@
 @import './utils/placeholders';
 
+.events > .container {
+  padding-bottom: 60px;
+
+  @media screen and (min-width: $desktop) {
+    padding-bottom: 80px;
+  }
+}
+
+.events-gallery {
+  margin-bottom: 60px;
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 80px;
+  }
+}
+
 .event-card {
   display: block;
   width: 128px;
