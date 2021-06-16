@@ -13,10 +13,11 @@ const options = {
   itemsPerPage: 20,
   centerAlign: true,
   page: 1,
-  // template: {
-  //   moveButton: '',
-  // },
 };
+
+if (window.innerWidth < 768) {
+  options.visiblePages = 3;
+}
 
 function fetchEvents() {
   apiService.fetchEventsDefault().then(events => {
@@ -34,7 +35,6 @@ function startPagination() {
 
   pagination.on('beforeMove', ({ page }) => {
     apiService.setPage(page);
-    console.log(page);
 
     fetchEvents();
   });
