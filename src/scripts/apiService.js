@@ -32,6 +32,18 @@ export default class ApiService {
         }
     };
 
+
+    async searchEventById() {
+        try {
+            const response = await fetch(`${BASE_URL}/events/${this.id}.json?apikey=${KEY}`);
+            const currentEvent = await response.json();
+            return currentEvent;
+        } catch (err) {
+            console.log(err)
+        };
+    };
+        
+
   fetchEventsByName(name) {
     const url = `${BASE_URL}/events.json?&keyword=${name}&apikey=${KEY}&size=${this.perPage}&page=${this.page}`;
     return fetch(url)
@@ -44,23 +56,12 @@ export default class ApiService {
       });
   }
 
-  searchEventById() {
-    console.log(this.id);
-    return fetch(`${BASE_URL}/events/${this.id}.json?apikey=${KEY}`)
-      .then(response => response.json())
-      .then(currentEvent => {
-        console.log(currentEvent);
-        return currentEvent;
-      });
-  }
 
-  // set id(newId) {
-  //     this.id = newId;
-  // }
 
   setPage(page) {
     this.page = page;
   }
+
 }
 
 
