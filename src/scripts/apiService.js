@@ -13,7 +13,7 @@ export default class ApiService {
     fetchEventsDefault() {
         const windowInnerWidth = window.innerWidth
         const size = onSize();
-        const url = `${BASE_URL}/events.json?&apikey=${KEY}&size=${size}&page=1`;
+        const url = `${BASE_URL}/events.json?&apikey=${KEY}&size=${size}&page=${this.page}`;
         return fetch(url)
         .then(response => response.json())
         .then(({ _embedded }) => {
