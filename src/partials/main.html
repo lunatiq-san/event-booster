@@ -1,0 +1,47 @@
+<main>
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">FIND BEST EVENTS AROUND THE WORLD</h1>
+
+      <!-- <form>
+            <label>
+                <input type="text" name="saerchEvent" placeholder="that we were looking for?" />
+            </label>
+            <label>
+                <input type="text" name="countryName" placeholder="in which country?" />
+            </label>
+        </form> -->
+
+      <fieldset class="hero-field-container">
+        <input
+          type="text"
+          name="searchEvent"
+          placeholder="Start searching"
+          class="field search-input"
+        />
+        <input
+          type="text"
+          name="countryName"
+          placeholder="Choose country"
+          class="field choose-country-input"
+        />
+      </fieldset>
+    </div>
+  </section>
+  <section class="events">
+    <div class="container">
+      <ul class="events-gallery js-events-list">
+        <!-- Здесь будут рендерится картинки -->
+      </ul>
+      <div id="pagination" class="tui-pagination"></div>
+    </div>
+  </section>
+<!-- Модальное окно для события
+          Для того чтобы открыть, необходимо добавить на div.lightbox CSS-класс is-open -->
+    <section class="lightbox js-lightbox">
+        <div class="lightbox__overlay"></div>
+        <div class="lightbox__content"></div>
+        <!-- <button type="button" class="lightbox__button" data-action="more-events">MORE FROM THIS AUTHOR</button> -->
+        <button type="button" class="lightbox__button" data-action="close-lightbox"></button>
+    </section>
+</main>

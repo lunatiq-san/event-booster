@@ -1,0 +1,120 @@
+@import './utils/placeholders';
+
+.events > .container {
+  padding-bottom: 60px;
+}
+
+.event-card {
+  display: block;
+  width: 128px;
+  min-height: 231px;
+  margin-bottom: 33px;
+  position: relative;
+
+  @media (min-width: $tablet) {
+    width: 194px;
+    min-height: 312px;
+  }
+
+  @media (min-width: $desktop) {
+    width: 196px;
+    min-height: 312px;
+  }
+}
+
+.rose-border {
+  position: absolute;
+  width: 109px;
+  height: 101px;
+  right: 0px;
+  top: -9px;
+
+  border: 1px solid $rose-border-color;
+  border-radius: 50px 0px;
+
+  @media (min-width: $tablet) {
+    width: 153px;
+    height: 143px;
+  }
+
+  @media (min-width: $desktop) {
+    width: 153px;
+    height: 143px;
+  }
+}
+
+.img-trumb {
+  height: 161px;
+  width: 128px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  border-radius: 50% 0 50% 0;
+  overflow: hidden;
+
+  @media (min-width: $tablet) {
+    height: 227px;
+    width: 180px;
+  }
+
+  @media (min-width: $desktop) {
+    width: 180px;
+    height: 227px;
+  }
+}
+
+.img-trumb > img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.event-info {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // width: 138px;
+  padding: 10px;
+}
+
+.event-name {
+  @extend %event-name-text;
+  margin-bottom: 5px;
+
+  @media (min-width: $tablet) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.event-data {
+  @extend %event-date-text;
+  margin-bottom: 5px;
+
+  @media (min-width: $tablet) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.location {
+  @extend %event-place-text;
+  margin-bottom: 5px;
+
+  @media (min-width: $tablet) {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+.location::before {
+  content: url(../images/geo.png);
+  fill: $main-text-color;
+  display: inline-block;
+  width: 7px;
+  height: 10px;
+  margin-right: 3px;
+}
