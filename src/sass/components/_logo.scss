@@ -1,10 +1,10 @@
-header {
+.logo-img {
   position: absolute;
+  display: block;
+
   top: 0px;
   left: 0px;
-}
-.logo-img {
-  display: block;
+
   max-width: 100%;
   height: auto;
 }

@@ -1,16 +1,3 @@
-// .hero > .container {
-//   padding-top: 78px;
-//   padding-bottom: 112px;
-//   @media screen and (min-width: $tablet) {
-//     padding-top: 40px;
-//     padding-bottom: 183px;
-//   }
-//   @media screen and (min-width: $desktop) {
-//     padding-top: 40px;
-//     padding-bottom: 191px;
-//   }
-// }
-
 .hero-title {
   @extend %hero-title;
   display: block;
