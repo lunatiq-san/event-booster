@@ -13,7 +13,7 @@ export default class ApiService {
     fetchEventsDefault() {
         const windowInnerWidth = window.innerWidth
         const size = onSize();
-        const url = `${BASE_URL}/events.json?&apikey=${KEY}&size=${size}&page=${this.page}`;
+        const url = `${BASE_URL}/events.json?keyword=${this.searchQuery}&apikey=${KEY}&size=${size}&page=${this.page}`;
         return fetch(url)
         .then(response => response.json())
         .then(({ _embedded }) => {
@@ -63,26 +63,6 @@ export default class ApiService {
                 console.log(currentEvent);
                 return currentEvent;
             });
-    };
-    fetchEventsSearchQuery() {
-        const windowInnerWidth = window.innerWidth
-        const size = onSize();
-        const url = `${BASE_URL}/events.json?keyword=${this.searchQuery}&apikey=${KEY}&size=${size}&page=${this.page}`;
-            return fetch(url)
-                .then(response => response.json())
-                .then(({ _embedded }) => {
-                    return _embedded;
-                })
-                .then(({ events }) => {
-                    return events;
-                });
-        function onSize() {
-            if (windowInnerWidth >= 1280 || windowInnerWidth < 768) {
-                return 20;
-                } else {
-                return 21;
-                    }
-                }
     };
     setPage(page) {
       this.page = page;

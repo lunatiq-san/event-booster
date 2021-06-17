@@ -15,7 +15,7 @@ function onSearch(e) {
 }
 
 function feachEventSearchKeyWord() {
-    apiService.fetchEventsSearchQuery().then(renderEventsCard);
+    apiService.fetchEventsDefault().then(renderEventsCard);
 }
 
 function renderEventsCard(events) {
