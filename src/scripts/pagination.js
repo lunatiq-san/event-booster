@@ -19,6 +19,8 @@ if (window.innerWidth < 768) {
   options.visiblePages = 3;
 }
 
+startPagination();
+
 function fetchEvents() {
   apiService.fetchEventsDefault().then(events => {
     renderEvent(events);
@@ -37,6 +39,7 @@ function startPagination() {
     apiService.setPage(page);
 
     fetchEvents();
+    scrollToTop();
   });
 }
 
@@ -44,4 +47,9 @@ function clearEventsList() {
   refs.eventsList.innerHTML = '';
 }
 
-startPagination();
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+}
