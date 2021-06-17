@@ -13,7 +13,7 @@ export default class ApiService {
     fetchEventsDefault() {
         const windowInnerWidth = window.innerWidth
         const size = onSize();
-        const url = `${BASE_URL}/events.json?&apikey=${KEY}&size=${size}&page=${this.page}`;
+        const url = `${BASE_URL}/events.json?keyword=${this.searchQuery}&apikey=${KEY}&size=${size}&page=${this.page}`;
         return fetch(url)
         .then(response => response.json())
         .then(({ _embedded }) => {
@@ -55,23 +55,18 @@ export default class ApiService {
         return events;
       });
     };
-   
-    
-    fetchEventsSearchQuery() {
-        const url = `${BASE_URL}/events.json?keyword=${this.searchQuery}&source=universe&apikey=${KEY}&size=21&page=1`;
-            return fetch(url)
-                .then(response => response.json())
-                .then(({ _embedded }) => {
-                    return _embedded;
-                })
-                .then(({ events }) => {
-                    return events;
-                });
-    };
     setPage(page) {
       this.page = page;
     }    
-        
+    // set id(newId) {
+    //     this.id = newId;
+    // }
+    get query() {
+        return this.searchQuery;
+      }
+    set query(newQuery) {
+        this.searchQuery = newQuery;
+    }
 }
 
 
