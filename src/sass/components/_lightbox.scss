@@ -3,41 +3,63 @@
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --animation-duration: 250ms;
 }
+
+.is-hidden {
+  overflow-y: hidden;
+}
+
 .lightbox {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 
   opacity: 0;
   pointer-events: none;
-  opacity: 0;
+  overflow-y: scroll;
+
   background: rgba(32, 13, 29, 0.6);
   backdrop-filter: blur(3px);
   transition: opacity var(--animation-duration) var(--timing-function);
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: initial;
+  }
 }
 
-.lightbox.is-open {
-  opacity: 1;
-  pointer-events: initial;
-}
-
-.lightbox__content {
-  position: absolute;
-  width: auto;
-  height: auto;
-  left: 7%;
-  top: 7%;
+.lightbox__container {
+  position: relative;
+  top: 0%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  padding-top: 75px;
+  padding-bottom: 100px;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
 
   background-color: $card-body-color;
-  border-radius: 50% 0%;
+  border-radius: 150px 0px;
   transform: scale(0.95);
   transition: transform var(--animation-duration) var(--timing-function);
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 28px;
+    padding-bottom: 0px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
 }
 
 .lightbox.is-open .lightbox__content {
@@ -47,37 +69,68 @@
   background-color: #fff2fd;
 }
 
-.card {
-  // position: relative;
-  max-width: 940px;
-  height: auto;
-}
-
 .modal-small-picto {
   display: block;
-  margin-top: 60px;
-  margin-bottom: 40px;
+  margin-bottom: 18px;
   margin-right: auto;
   margin-left: auto;
   width: 102px;
   height: 102px;
   border-radius: 50%;
   object-fit: cover;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-bottom: 40px;
+    width: 70px;
+    height: 70px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 132px;
+    height: 132px;
+  }
 }
 
 .modal-detalis-event {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 860px;
-  margin: 40px 0px;
+  width: 320px;
+  margin: 25px auto;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 595px;
+    margin: 0px auto;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 860px;
+    margin: 0px auto;
+  }
 }
 
 .poster {
-  display: block;
-  width: 360px;
-  height: 460px;
-  margin-right: 30px;
+  display: none;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    display: block;
+    width: 233px;
+    height: 416px;
+    margin-right: 30px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: block;
+    width: 360px;
+    height: 460px;
+    margin-right: 30px;
+  }
 }
 
 .poster img {
@@ -90,7 +143,20 @@
 .modal-info-event {
   display: flex;
   flex-direction: column;
-  width: 280px;
+  align-items: center;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 280px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+  }
 }
 
 .info-event-title {
@@ -108,53 +174,87 @@
   text-align: left;
 }
 
-.lightbox__button[data-action='by-tickets'] {
-  @extend %modal-btn-text;
+.lightbox__button.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
   width: 145px;
   height: 40px;
-  margin-bottom: 30px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #ffffff;
 
   background: #4c00fe;
   border-radius: 5px;
+
+  &:hover,
+  &:focus {
+    background: #2e009a;
+  }
 }
 
-.lightbox__button[data-action='more-events'] {
+.button-more-event {
   @extend %modal-btn-text;
-  width: 145px;
+  display: block;
   height: 40px;
-  margin-bottom: 60px;
   margin-left: auto;
   margin-right: auto;
 
-  background: #4c00fe;
+  border: 1px solid #4c00fe;
+  box-sizing: border-box;
   border-radius: 5px;
+  color: #4c00fe;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    display: block;
+    height: 40px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: block;
+    height: 40px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  &:hover,
+  &:focus {
+    border: 1px solid #dc56c5;
+  }
 }
 
-.lightbox__button[data-action='close-lightbox'] {
-  position: fixed;
-  top: 15px;
-  right: 15px;
+.button-more-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  padding: 0;
-  margin: 0;
-  border: none;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
-  background-color: transparent;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color var(--animation-duration) var(--timing-function);
-  outline: none;
+  color: #fff2fd;
+
+  &:hover,
+  &:focus {
+    fill: #2196f3;
+  }
   background-image: url('../images/close.svg');
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
 }
 
-.lightbox__button:hover,
-.lightbox__button:focus {
-  background-color: rgba(0, 0, 0, 0.5);
-}
+// .lightbox__button:hover,
+// .lightbox__button:focus {
+//   background-color: rgba(0, 0, 0, 0.5);
+// }
