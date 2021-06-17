@@ -65,7 +65,9 @@ export default class ApiService {
             });
     };
     fetchEventsSearchQuery() {
-        const url = `${BASE_URL}/events.json?keyword=${this.searchQuery}&source=universe&apikey=${KEY}&size=21&page=1`;
+        const windowInnerWidth = window.innerWidth
+        const size = onSize();
+        const url = `${BASE_URL}/events.json?keyword=${this.searchQuery}&apikey=${KEY}&size=${size}&page=${this.page}`;
             return fetch(url)
                 .then(response => response.json())
                 .then(({ _embedded }) => {
@@ -74,6 +76,13 @@ export default class ApiService {
                 .then(({ events }) => {
                     return events;
                 });
+        function onSize() {
+            if (windowInnerWidth >= 1280 || windowInnerWidth < 768) {
+                return 20;
+                } else {
+                return 21;
+                    }
+                }
     };
     setPage(page) {
       this.page = page;
@@ -81,6 +90,12 @@ export default class ApiService {
     // set id(newId) {
     //     this.id = newId;
     // }
+    get query() {
+        return this.searchQuery;
+      }
+    set query(newQuery) {
+        this.searchQuery = newQuery;
+    }
         
 }
 
