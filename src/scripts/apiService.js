@@ -54,16 +54,9 @@ export default class ApiService {
       .then(({ events }) => {
         return events;
       });
-  }
-    searchEventById() {
-        console.log(this.id);
-        return fetch(`${BASE_URL}/events/${this.id}.json?apikey=${KEY}`)
-            .then(response => response.json())
-            .then(currentEvent => {
-                console.log(currentEvent);
-                return currentEvent;
-            });
     };
+   
+    
     fetchEventsSearchQuery() {
         const url = `${BASE_URL}/events.json?keyword=${this.searchQuery}&source=universe&apikey=${KEY}&size=21&page=1`;
             return fetch(url)
@@ -78,9 +71,6 @@ export default class ApiService {
     setPage(page) {
       this.page = page;
     }    
-    // set id(newId) {
-    //     this.id = newId;
-    // }
         
 }
 
