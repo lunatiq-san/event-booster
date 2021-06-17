@@ -54,15 +54,6 @@ export default class ApiService {
       .then(({ events }) => {
         return events;
       });
-  }
-    searchEventById() {
-        console.log(this.id);
-        return fetch(`${BASE_URL}/events/${this.id}.json?apikey=${KEY}`)
-            .then(response => response.json())
-            .then(currentEvent => {
-                console.log(currentEvent);
-                return currentEvent;
-            });
     };
     setPage(page) {
       this.page = page;
@@ -76,7 +67,6 @@ export default class ApiService {
     set query(newQuery) {
         this.searchQuery = newQuery;
     }
-        
 }
 
 
