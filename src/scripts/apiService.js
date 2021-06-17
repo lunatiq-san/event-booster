@@ -11,9 +11,8 @@ export default class ApiService {
     }
 
     fetchEventsDefault() {
-        const windowInnerWidth = window.innerWidth
         const size = onSize();
-        const url = `${BASE_URL}/events.json?&apikey=${KEY}&size=${size}&page=${this.page}`;
+        const url = `${BASE_URL}/events.json?&apikey=${KEY}&size=${size}&page=${this.page}&sort=id,asc&keyword=${this.searchQuery}`;
         return fetch(url)
         .then(response => response.json())
         .then(({ _embedded }) => {
@@ -23,7 +22,8 @@ export default class ApiService {
             return events;
         });
             
-        function onSize() {
+      function onSize() {
+        const windowInnerWidth = window.innerWidth
             if (windowInnerWidth >= 1280 || windowInnerWidth < 768) {
             return 20;
         } else {
