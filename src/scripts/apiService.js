@@ -2,47 +2,41 @@ const KEY = 'Xy0VDFihRxcZE0J3kNsMVc7AsbVJVwmN';
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2';
 
 export default class ApiService {
-    constructor() {
+  constructor() {
     this.searchQuery = '';
     this.page = 1;
     this.perPage = 20;
     this.totalElements = null;
     this.id = ' ';
+  }
+
+  fetchEventsDefault() {
+    const windowInnerWidth = window.innerWidth;
+    const size = onSize();
+    const url = `${BASE_URL}/events.json?&apikey=${KEY}&size=${size}&page=${this.page}`;
+    return fetch(url)
+      .then(response => response.json())
+      .then(({ _embedded }) => _embedded)
+      .then(({ events }) => events);
+
+    function onSize() {
+      if (windowInnerWidth >= 1280 || windowInnerWidth < 768) {
+        return 20;
+      } else {
+        return 21;
+      }
     }
+  }
 
-    fetchEventsDefault() {
-        const windowInnerWidth = window.innerWidth
-        const size = onSize();
-        const url = `${BASE_URL}/events.json?&apikey=${KEY}&size=${size}&page=${this.page}`;
-        return fetch(url)
-        .then(response => response.json())
-        .then(({ _embedded }) => {
-            return _embedded;
-        })
-        .then(({ events }) => {
-            return events;
-        });
-            
-        function onSize() {
-            if (windowInnerWidth >= 1280 || windowInnerWidth < 768) {
-            return 20;
-        } else {
-                return 21;
-            }
-        }
-    };
-
-
-    async searchEventById() {
-        try {
-            const response = await fetch(`${BASE_URL}/events/${this.id}.json?apikey=${KEY}`);
-            const currentEvent = await response.json();
-            return currentEvent;
-        } catch (err) {
-            console.log(err)
-        };
-    };
-        
+  async searchEventById() {
+    try {
+      const response = await fetch(`${BASE_URL}/events/${this.id}.json?apikey=${KEY}`);
+      const currentEvent = await response.json();
+      return currentEvent;
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   fetchEventsByName(name) {
     const url = `${BASE_URL}/events.json?&keyword=${name}&apikey=${KEY}&size=${this.perPage}&page=${this.page}`;
@@ -55,38 +49,20 @@ export default class ApiService {
         return events;
       });
   }
-    searchEventById() {
-        console.log(this.id);
-        return fetch(`${BASE_URL}/events/${this.id}.json?apikey=${KEY}`)
-            .then(response => response.json())
-            .then(currentEvent => {
-                console.log(currentEvent);
-                return currentEvent;
-            });
-    };
-    fetchEventsSearchQuery() {
-        const url = `${BASE_URL}/events.json?keyword=${this.searchQuery}&source=universe&apikey=${KEY}&size=21&page=1`;
-            return fetch(url)
-                .then(response => response.json())
-                .then(({ _embedded }) => {
-                    return _embedded;
-                })
-                .then(({ events }) => {
-                    return events;
-                });
-    };
-    setPage(page) {
-      this.page = page;
-    }    
-    // set id(newId) {
-    //     this.id = newId;
-    // }
-        
+
+  fetchEventsSearchQuery() {
+    const url = `${BASE_URL}/events.json?keyword=${this.searchQuery}&source=universe&apikey=${KEY}&size=21&page=1`;
+    return fetch(url)
+      .then(response => response.json())
+      .then(({ _embedded }) => {
+        return _embedded;
+      })
+      .then(({ events }) => {
+        return events;
+      });
+  }
+
+  setPage(page) {
+    this.page = page;
+  }
 }
-
-
-
-
-
-
-
