@@ -16,11 +16,18 @@
                 {{_embedded.venues.[0].name}}</p>
             <h3 class="info-event-title">WHO</h3>
             <p class="info-event-text">{{name}}</p>
+            <h3 class="info-event-title">PRICES</h3>
             {{#each priceRanges}}
-            <p class="card-text">{{this.type}} {{this.min}} - {{this.max}} {{this.currency}}</p>
+            <svg width="29" height="20">
+                <use href="././images/symbol-defs.svg#barcode"></use>
+            </svg>
+            <p class="info-event-text">
+                
+            {{this.type}} {{this.min}} - {{this.max}} {{this.currency}}</p>
             <a href={{../url}} class="lightbox__button link" target="_blank">BUY TICKETS</a>
             {{/each}}
             </div>
-            <button type="button" class="lightbox__button" data-action="more-events">MORE FROM THIS AUTHOR</button>
+            
         </div>
+        {{!-- <button type="button" class="lightbox__button" data-action="more-events">MORE FROM THIS AUTHOR</button> --}}
 </div>
