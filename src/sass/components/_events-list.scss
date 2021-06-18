@@ -124,6 +124,7 @@
 }
 
 .location::before {
+  // content: url(../images/symbol-defs.svg#g-tag);
   content: url(../images/geo.png);
   fill: $main-text-color;
   display: inline-block;
@@ -131,3 +132,15 @@
   height: 10px;
   margin-right: 3px;
 }
+
+// .location-icon {
+//   fill: $main-text-color;
+//   width: 7px;
+//   height: 10px;
+//   z-index: 1;
+// }
+
+// .location::before:hover,
+// .location-icon:focus {
+//   fill: $hero-text-color;
+// }

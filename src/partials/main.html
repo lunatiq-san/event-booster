@@ -1,20 +1,17 @@
 <main>
   <section class="hero"></section>
-
-    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-    <div class="loader">      
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>   
-    </div>    
-
+  <div class="loader">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>
   <section class="events">
     <div class="container">
       <ul class="events-gallery js-events-list">
@@ -27,8 +24,13 @@
           Для того чтобы открыть, необходимо добавить на div.lightbox CSS-класс is-open -->
   <section class="lightbox js-lightbox">
     <div class="lightbox__overlay"></div>
-    <div class="lightbox__content"></div>
-    <button type="button" class="lightbox__button" data-action="more-events">MORE FROM THIS AUTHOR</button>
-    <button type="button" class="lightbox__button" data-action="close-lightbox"></button>
+    <div class="lightbox__container">
+      <div class="lightbox__content">
+      </div>
+      <button type="button" class="lightbox__button button-more-event" data-action="more-events">MORE FROM THIS
+        AUTHOR</button>
+      <button type="button" class="lightbox__button button-more-close" data-action="close-lightbox"></button>
   </section>
+  </div>
+
 </main>

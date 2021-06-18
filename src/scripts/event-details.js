@@ -12,6 +12,7 @@ function openLightboxOnClick(e) {
   if (!card) return;
   renderEventCard(card);
   refs.lightbox.classList.add("is-open");
+  document.body.classList.add("is-hidden");
   addEventListeners();
   
 };
@@ -21,13 +22,14 @@ function renderEventCard(card) {
   apiService.searchEventById()
     .then(currentEvent => {
       currentEvent.dates.start.localTime = currentEvent.dates.start.localTime.slice(0, -3);
-      refs.lightboxContent.insertAdjacentHTML('beforeend', eventTpl(currentEvent));
+      refs.lightboxContent.insertAdjacentHTML('afterbegin', eventTpl(currentEvent));
     })
     .catch(error => console.log(error));
 };
 
 function closeLightboxOnClick() {
   refs.lightbox.classList.remove("is-open");
+  document.body.classList.remove("is-hidden")
   removeEventListeners();
   refs.lightboxContent.innerHTML = ' ';
     
