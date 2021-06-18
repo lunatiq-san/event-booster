@@ -21,10 +21,6 @@ function onError() {
       resetKeyword();
       resetPage();
 }
-// function feachEventSearchKeyWord() {
-//     apiService.fetchEventsDefault().then(renderEventsCard).catch(console.log('qwert'));
-// }
-
 function renderEventsCard(events) {
     const markup = eventsTpl(events);
     refs.eventsList.innerHTML = markup;
