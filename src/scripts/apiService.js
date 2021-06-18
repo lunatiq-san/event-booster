@@ -10,17 +10,17 @@ export default class ApiService {
     this.id = ' ';
     }
 
-    fetchEventsDefault() {
+    async fetchEventsDefault() {
+      try {
         const size = onSize();
         const url = `${BASE_URL}/events.json?&apikey=${KEY}&size=${size}&page=${this.page}&sort=id,asc&keyword=${this.searchQuery}`;
-        return fetch(url)
-        .then(response => response.json())
-        .then(({ _embedded }) => {
-            return _embedded;
-        })
-        .then(({ events }) => {
-            return events;
-        });
+        const response = await fetch(url);
+        const { _embedded } = await response.json();
+        const { events } = _embedded;
+        return events;
+      } catch (err) {
+        console.log(err)
+      };
             
       function onSize() {
         const windowInnerWidth = window.innerWidth
