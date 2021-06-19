@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "lodash.debounce": "^4.0.8",
+    "sweetalert2": "^11.0.17",
     "tui-pagination": "^3.4.0"
   }
 }
