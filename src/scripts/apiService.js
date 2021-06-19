@@ -4,7 +4,7 @@ const BASE_URL = 'https://app.ticketmaster.com/discovery/v2';
 export default class ApiService {
   constructor() {
     this.searchQuery = '';
-    this.page = 1;
+    this.page = 0;
     this.perPage = 20;
     this.totalElements = null;
     this.id = ' ';
