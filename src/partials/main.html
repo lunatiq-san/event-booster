@@ -12,6 +12,8 @@
       <div class="wave"></div>
       <div class="wave"></div>
   </div>
+
+
   <section class="events">
     <div class="container">
       <ul class="events-gallery js-events-list">
@@ -22,14 +24,17 @@
   </section>
   <!-- Модальное окно для события
           Для того чтобы открыть, необходимо добавить на div.lightbox CSS-класс is-open -->
-  <section class="lightbox js-lightbox">
+
+
+  <section id="popup" class="lightbox js-lightbox popup">    
     <div class="lightbox__overlay"></div>
-    <div class="lightbox__container">
-    <div class="lightbox__content">
+    <div class="lightbox__container popup_body">
+    <div class="lightbox__content popup_content">
+     
     </div>
     <button type="button" class="lightbox__button button-more-event" data-action="more-events">MORE FROM THIS AUTHOR</button>
-    <button type="button" class="lightbox__button button-more-close" data-action="close-lightbox"></button> 
+    <button   type="button" class="lightbox__button button-more-close popup__close" data-action="close-lightbox"></button> 
   </section> 
     </div>
-    
+
 </main>
