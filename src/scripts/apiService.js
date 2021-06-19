@@ -20,7 +20,7 @@ export default class ApiService {
       return events;
     } catch (err) {
       console.log(err);
-      return (err = 'Whoops, didn’t find anything. Shall we try to find something else?');
+      throw (err = 'Whoops, didn’t find anything. Shall we try to find something else?');
     }
 
     function onSize() {
