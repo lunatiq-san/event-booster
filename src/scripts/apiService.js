@@ -4,22 +4,27 @@ const BASE_URL = 'https://app.ticketmaster.com/discovery/v2';
 export default class ApiService {
   constructor() {
     this.searchQuery = '';
-    this.page = 1;
+    this.page = 0;
     this.perPage = 20;
     this.totalElements = null;
     this.id = ' ';
   }
 
-  fetchEventsDefault() {
-    const windowInnerWidth = window.innerWidth;
-    const size = onSize();
-    const url = `${BASE_URL}/events.json?keyword=${this.searchQuery}&apikey=${KEY}&size=${size}&page=${this.page}`;
-    return fetch(url)
-      .then(response => response.json())
-      .then(({ _embedded }) => _embedded)
-      .then(({ events }) => events);
+  async fetchEventsDefault() {
+    try {
+      this.perPage = onSize();
+      const url = `${BASE_URL}/events.json?&keyword=${this.searchQuery}&apikey=${KEY}&size=${this.perPage}&page=${this.page}&sort=id,asc`;
+      const response = await fetch(url);
+      const { _embedded } = await response.json();
+      const { events } = _embedded;
+      return events;
+    } catch (err) {
+      console.log(err);
+      throw (err = 'Whoops, didn’t find anything. Shall we try to find something else?');
+    }
 
     function onSize() {
+      const windowInnerWidth = window.innerWidth;
       if (windowInnerWidth >= 1280 || windowInnerWidth < 768) {
         return 20;
       } else {
@@ -39,6 +44,7 @@ export default class ApiService {
   }
 
   fetchEventsByName(name) {
+    this.perPage = onSize();
     const url = `${BASE_URL}/events.json?&keyword=${name}&apikey=${KEY}&size=${this.perPage}&page=${this.page}`;
     return fetch(url)
       .then(response => response.json())

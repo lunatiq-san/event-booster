@@ -22,6 +22,8 @@
   min-height: 231px;
   margin-bottom: 33px;
   position: relative;
+  cursor: pointer;
+  transition: $timing-function;
 
   @media (min-width: $tablet) {
     width: 194px;
@@ -32,6 +34,58 @@
     width: 196px;
     min-height: 312px;
   }
+}
+
+.event-card:hover {
+  transform: scale(1.05);
+}
+
+.event-card:hover .img-trumb {
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $main-pulsar-color,
+    0 0 15px $main-pulsar-color, 0 0 30px $main-pulsar-color, 0 0 20px $main-pulsar-color,
+    0 0 5px $main-pulsar-color;
+  animation-name: pulsate;
+  animation-duration: 1000ms;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes pulsate {
+  0% {
+    box-shadow: 0 0 1px $main-text-color, 0 0 2px $main-text-color, 0 0 3px $main-text-color,
+      0 0 4px $main-pulsar-color, 0 0 3px $main-pulsar-color, 0 0 6px $main-pulsar-color,
+      0 0 4px $main-pulsar-color, 0 0 1px $main-pulsar-color;
+  }
+  100% {
+    box-shadow: 0 0 5px $main-text-color, 0 0 10px $main-text-color, 0 0 15px $main-text-color,
+      0 0 20px $main-pulsar-color, 0 0 15px $main-pulsar-color, 0 0 30px $main-pulsar-color,
+      0 0 20px $main-pulsar-color, 0 0 5px $main-pulsar-color;
+  }
+}
+
+@keyframes pulsate-text {
+  0% {
+    text-shadow: 0 0 1px $main-text-color, 0 0 2px $main-text-color, 0 0 3px $main-text-color,
+      0 0 4px $main-pulsar-color, 0 0 3px $main-pulsar-color, 0 0 6px $main-pulsar-color,
+      0 0 4px $main-pulsar-color, 0 0 1px $main-pulsar-color;
+  }
+  100% {
+    text-shadow: 0 0 5px $main-text-color, 0 0 10px $main-text-color, 0 0 15px $main-text-color,
+      0 0 20px $main-pulsar-color, 0 0 15px $main-pulsar-color, 0 0 30px $main-pulsar-color,
+      0 0 20px $main-pulsar-color, 0 0 5px $main-pulsar-color;
+  }
+}
+
+.event-card:hover .event-name {
+  color: $main-body-color;
+  text-shadow: $hero-text-color 0px 0px 5px, $hero-text-color 0px 0px 10px,
+    $hero-text-color 0px 0px 15px, $hero-text-color 0px 0px 20px;
+  animation-name: pulsate-text;
+  animation-duration: 1000ms;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .rose-border {
@@ -60,9 +114,9 @@
   width: 128px;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid black;
   border-radius: 50% 0 50% 0;
   overflow: hidden;
+  transition: $timing-function;
 
   @media (min-width: $tablet) {
     height: 227px;
@@ -123,6 +177,7 @@
 }
 
 .location::before {
+  // content: url(../images/symbol-defs.svg#g-tag);
   content: url(../images/geo.png);
   fill: $main-text-color;
   display: inline-block;
@@ -130,3 +185,15 @@
   height: 10px;
   margin-right: 3px;
 }
+
+// .location-icon {
+//   fill: $main-text-color;
+//   width: 7px;
+//   height: 10px;
+//   z-index: 1;
+// }
+
+// .location::before:hover,
+// .location-icon:focus {
+//   fill: $hero-text-color;
+// }
