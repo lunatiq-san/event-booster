@@ -8,12 +8,15 @@ export default class ApiService {
     this.perPage = 20;
     this.totalElements = null;
     this.id = ' ';
+    this.country = '';
+    this.countryList = [];
+    this.totalPages = 0;
   }
 
   fetchEventsDefault() {
     const windowInnerWidth = window.innerWidth;
     const size = onSize();
-    const url = `${BASE_URL}/events.json?keyword=${this.searchQuery}&apikey=${KEY}&size=${size}&page=${this.page}`;
+    const url = `${BASE_URL}/events.json?keyword=${this.searchQuery}&apikey=${KEY}&size=${size}&page=${this.page}&countryCode=${this.country}`;
     return fetch(url)
       .then(response => response.json())
       .then(({ _embedded }) => _embedded)
@@ -56,5 +59,33 @@ export default class ApiService {
 
   set query(newQuery) {
     this.searchQuery = newQuery;
+  }
+
+  async getCountryList() {
+        try {
+      const response = await fetch(`${BASE_URL}/events.json?size=150&page=${this.page}&apikey=${KEY}`);
+      const eventsResp = await response.json();
+          // console.log(eventsResp);
+          const totalPages = eventsResp.page.totalPages;
+          // console.log(totalPages);
+          this.totalPages=totalPages;
+          const { _embedded } = eventsResp;
+          // console.log(_embedded);
+          const { events } = _embedded;
+          // console.log(events);
+          return events;
+
+        } catch (err) {
+      console.log(err);
+    }
+
+  }
+
+   incrementPage() {
+    this.page += 1;
+  }
+
+  resetPage() {
+    this.page = 1;
   }
 }
