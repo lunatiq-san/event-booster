@@ -9,8 +9,6 @@ export default class ApiService {
     this.totalElements = null;
     this.id = ' ';
     this.country = '';
-    this.countryList = [];
-    this.totalPages = 0;
   }
 
   fetchEventsDefault() {
@@ -61,31 +59,4 @@ export default class ApiService {
     this.searchQuery = newQuery;
   }
 
-  async getCountryList() {
-        try {
-      const response = await fetch(`${BASE_URL}/events.json?size=150&page=${this.page}&apikey=${KEY}`);
-      const eventsResp = await response.json();
-          // console.log(eventsResp);
-          const totalPages = eventsResp.page.totalPages;
-          // console.log(totalPages);
-          this.totalPages=totalPages;
-          const { _embedded } = eventsResp;
-          // console.log(_embedded);
-          const { events } = _embedded;
-          // console.log(events);
-          return events;
-
-        } catch (err) {
-      console.log(err);
-    }
-
-  }
-
-   incrementPage() {
-    this.page += 1;
-  }
-
-  resetPage() {
-    this.page = 1;
-  }
 }
