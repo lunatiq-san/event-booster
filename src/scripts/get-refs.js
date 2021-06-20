@@ -6,7 +6,7 @@ export default function getRefs() {
     lightboxContent: document.querySelector('.lightbox__content'),
     closeLightboxBtn: document.querySelector('[data-action="close-lightbox"]'),
     searchQuery: document.querySelector('.search-input'),
-    lightboxBackdrop: document.querySelector('div.lightbox__overlay'),
+    lightboxBackdrop: document.querySelector('section.js-lightbox'),
     eventCard: document.querySelector('.event-card'),
     searchCountry: document.querySelector('.js-select2'),
   };
