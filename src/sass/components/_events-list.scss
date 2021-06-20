@@ -186,6 +186,17 @@
   margin-right: 3px;
 }
 
+.error-text {
+  @extend %event-name-text;
+  margin-bottom: 5px;
+  flex-grow: 1;
+
+  @media (min-width: $tablet) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
 // .location-icon {
 //   fill: $main-text-color;
 //   width: 7px;
