@@ -1,5 +1,4 @@
-<div class="card">
-     <img class="modal-small-picto" src="{{imageUrl}}" alt="{{name}}">
+  <img class="modal-small-picto" src="{{imageUrl}}" alt="{{name}}">
     <div class="modal-detalis-event">
         <div class="poster">
             <img  src="{{imageUrl}}" alt="{{name}}">
@@ -18,16 +17,17 @@
             <p class="info-event-text">{{name}}</p>
             <h3 class="info-event-title">PRICES</h3>
             {{#each priceRanges}}
-            <svg width="29" height="20">
-                <use href="././images/symbol-defs.svg#barcode"></use>
+            <span class="price-span">
+            {{!-- <img src="../images/ticket1.png" alt=""> --}}
+            <svg class="price-barcode">
+                <use href="./images/symbol-defs.svg#icon-ticket"></use>
             </svg>
-            <p class="info-event-text">
+            <p class="info-event-text first-symbol-text">
                 
             {{this.type}} {{this.min}} - {{this.max}} {{this.currency}}</p>
+            </span>    
             <a href={{../url}} class="lightbox__button link" target="_blank">BUY TICKETS</a>
             {{/each}}
             </div>
             
         </div>
-        {{!-- <button type="button" class="lightbox__button" data-action="more-events">MORE FROM THIS AUTHOR</button> --}}
-</div>
