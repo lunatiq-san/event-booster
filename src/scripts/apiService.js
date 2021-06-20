@@ -4,34 +4,37 @@ const BASE_URL = 'https://app.ticketmaster.com/discovery/v2';
 export default class ApiService {
   constructor() {
     this.searchQuery = '';
-    this.page = 1;
+    this.page = 0;
     this.perPage = 20;
     this.totalElements = null;
     this.id = ' ';
+    this.country = '';
+  }
+
+
+  async fetchEventsDefault() {
+    try {
+      this.perPage = onSize();
+      const url = `${BASE_URL}/events.json?&keyword=${this.searchQuery}&apikey=${KEY}&size=${this.perPage}&page=${this.page}&sort=id,asc&countryCode=${this.country}`;
+      const response = await fetch(url);
+      const { _embedded } = await response.json();
+      const { events } = _embedded;
+      return events;
+    } catch (err) {
+      console.log(err);
+      throw (err = 'Whoops, didn’t find anything. Shall we try to find something else?');
     }
 
-    async fetchEventsDefault() {
-      try {
-         this.perPage = onSize();
-        const url = `${BASE_URL}/events.json?&keyword=${this.searchQuery}&apikey=${KEY}&size=${this.perPage}&page=${this.page}&sort=id,asc`;
-        const response = await fetch(url);
-        const { _embedded } = await response.json();
-        const { events } = _embedded;
-        return events;
-      } catch (err) {
-        console.log(err)
-        return err='Whoops, didn’t find anything. Shall we try to find something else?'
-      };
-            
-      function onSize() {
-        const windowInnerWidth = window.innerWidth
-            if (windowInnerWidth >= 1280 || windowInnerWidth < 768) {
-            return 20;
-        } else {
-                return 21;
-            }
-        }
-    };
+
+    function onSize() {
+      const windowInnerWidth = window.innerWidth;
+      if (windowInnerWidth >= 1280 || windowInnerWidth < 768) {
+        return 20;
+      } else {
+        return 21;
+      }
+    }
+  }
 
   async searchEventById() {
     try {
@@ -63,4 +66,5 @@ export default class ApiService {
   set query(newQuery) {
     this.searchQuery = newQuery;
   }
+
 }

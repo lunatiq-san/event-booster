@@ -8,5 +8,6 @@ export default function getRefs() {
     searchQuery: document.querySelector('.search-input'),
     lightboxBackdrop: document.querySelector('div.lightbox__overlay'),
     eventCard: document.querySelector('.event-card'),
+    searchCountry: document.querySelector('.js-select2'),
   };
 }
