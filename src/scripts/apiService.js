@@ -44,7 +44,7 @@ export default class ApiService {
   }
 
   fetchEventsByName(name) {
-    this.perPage = onSize();
+    // this.perPage = onSize();
     const url = `${BASE_URL}/events.json?&keyword=${name}&apikey=${KEY}&size=${this.perPage}&page=${this.page}`;
     return fetch(url)
       .then(response => response.json())
