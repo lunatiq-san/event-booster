@@ -12,8 +12,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 
   opacity: 0;
   pointer-events: none;
@@ -29,6 +29,14 @@
   }
 }
 
+// .lightbox__overlay {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: 120vh;
+// }
+
 .lightbox__container {
   position: relative;
   top: 0%;
@@ -36,6 +44,8 @@
   transform: translate(-50%, -50%);
   padding-top: 75px;
   padding-bottom: 100px;
+  margin-top: 100px;
+  margin-bottom: 100px;
   box-sizing: border-box;
 
   background-color: $card-body-color;
@@ -44,21 +54,31 @@
   transition: transform var(--animation-duration) var(--timing-function);
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    max-width: 650px;
+    max-height: 831px;
     padding-top: 28px;
-    padding-bottom: 0px;
+    padding-bottom: 56px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-top: 150px;
+    margin-bottom: 150px;
   }
 
   @media screen and (min-width: 1280px) {
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding-top: 0px;
-    padding-bottom: 0px;
+    width: 930px;
+    max-height: 1023px;
+    padding-top: 62px;
+    padding-bottom: 62px;
+    padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
@@ -148,14 +168,14 @@
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 280px;
+    align-items: normal;
+    weight: 265px;
   }
 
   @media screen and (min-width: 1280px) {
     display: flex;
-    flex-direction: column;
-    width: 280px;
+    align-items: normal;
+    weight: 450px;
   }
 }
 
@@ -174,14 +194,35 @@
   text-align: left;
 }
 
+.price-span {
+  display: block;
+  align-items: center;
+}
+
+.first-symbol-text::first-letter {
+  text-transform: uppercase;
+}
+
+.price-barcode {
+  margin-right: 13px;
+
+  width: 29px;
+  height: 19px;
+
+  @media screen and (max-width: 1279px) {
+    width: 24px;
+    height: 16px;
+  }
+}
 .lightbox__button.link {
   display: flex;
   justify-content: center;
   align-items: center;
-
   text-decoration: none;
+
   width: 145px;
   height: 40px;
+  margin-bottom: 30px;
 
   font-family: Montserrat;
   font-style: normal;
@@ -215,14 +256,12 @@
     display: block;
     height: 40px;
     margin-top: 40px;
-    margin-bottom: 30px;
   }
 
   @media screen and (min-width: 1280px) {
     display: block;
     height: 40px;
     margin-top: 40px;
-    margin-bottom: 30px;
   }
 
   &:hover,
@@ -240,21 +279,16 @@
   align-items: center;
   width: 30px;
   height: 30px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
+  border: none;
   color: #fff2fd;
 
   &:hover,
   &:focus {
     fill: #2196f3;
   }
+
   background-image: url('../images/close.svg');
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
 }
-
-// .lightbox__button:hover,
-// .lightbox__button:focus {
-//   background-color: rgba(0, 0, 0, 0.5);
-// }
