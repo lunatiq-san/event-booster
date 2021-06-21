@@ -32,6 +32,8 @@
 
   background: $field-background-color;
   backdrop-filter: blur(20px);
+
+  outline: none;
 }
 
 .input-icon {

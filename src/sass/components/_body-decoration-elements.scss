@@ -1,0 +1,230 @@
+// left line
+
+body::before {
+  content: ' ';
+
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 86px;
+
+  z-index: 5;
+
+  border-left: 1px solid $body-decoration-el-color;
+
+  width: 1px;
+  height: 100%;
+}
+
+// right line
+
+body::after {
+  content: ' ';
+
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 86px;
+
+  z-index: 5;
+
+  border-left: 1px solid $body-decoration-el-color;
+
+  width: 1px;
+  height: 100%;
+}
+
+// left circles
+
+header::before {
+  content: ' ';
+
+  display: block;
+  position: absolute;
+  top: 468px;
+  left: 23px;
+
+  z-index: 10;
+
+  background-color: #0e0e0e;
+
+  border: 1px solid $body-decoration-el-color;
+  border-radius: 50%;
+
+  width: 126px;
+  height: 126px;
+}
+
+.header-content::before {
+  content: ' ';
+
+  display: block;
+  position: absolute;
+  top: 492px;
+  left: 46px;
+
+  z-index: 15;
+
+  background: linear-gradient(
+    151.61deg,
+    rgba(196, 196, 196, 0.03) -7.48%,
+    rgba(196, 196, 196, 0) 106.62%
+  );
+  backdrop-filter: blur(20px);
+
+  border-radius: 50%;
+
+  width: 80px;
+  height: 80px;
+}
+
+// left square
+
+.hero::before {
+  content: ' ';
+
+  display: block;
+  position: absolute;
+  top: 1585px;
+  left: 25px;
+
+  z-index: 15;
+
+  border: 1px solid $body-decoration-el-color;
+  border-radius: 0 100% 0 0;
+
+  width: 238px;
+  height: 238px;
+}
+
+// left bottom cicles
+// not done yet *** need good footer
+
+//  right square
+
+header::after {
+  content: ' ';
+
+  display: block;
+  position: absolute;
+  top: 659px;
+  right: 25px;
+
+  z-index: 15;
+
+  border: 1px solid $body-decoration-el-color;
+  border-radius: 100% 0 0 0;
+
+  width: 238px;
+  height: 238px;
+}
+
+// right circles
+
+main::before {
+  content: ' ';
+
+  display: block;
+  position: absolute;
+  top: 1200px;
+  right: 23px;
+
+  z-index: 10;
+
+  background-color: #0e0e0e;
+
+  border: 1px solid $body-decoration-el-color;
+  border-radius: 50%;
+
+  width: 126px;
+  height: 126px;
+}
+
+.events::before {
+  content: ' ';
+
+  display: block;
+  position: absolute;
+  top: 1224px;
+  right: 46px;
+
+  z-index: 15;
+
+  background: linear-gradient(
+    151.61deg,
+    rgba(196, 196, 196, 0.03) -7.48%,
+    rgba(196, 196, 196, 0) 106.62%
+  );
+  backdrop-filter: blur(20px);
+
+  border-radius: 50%;
+
+  width: 80px;
+  height: 80px;
+}
+
+// right bootom square
+
+.hero::after {
+  content: ' ';
+
+  display: block;
+  position: absolute;
+  top: 2720px;
+  right: 25px;
+
+  z-index: 15;
+
+  border: 1px solid $body-decoration-el-color;
+  border-radius: 100% 0 0 0;
+
+  width: 238px;
+  height: 238px;
+}
+
+// footer {
+//   position: relative;
+//   overflow: hidden;
+// }
+
+// .footer::before {
+//   content: ' ';
+
+//   display: block;
+//   position: absolute;
+//   bottom: -60px;
+//   left: 23px;
+
+//   z-index: 15;
+
+//   background-color: #0e0e0e;
+
+//   border: 1px solid $body-decoration-el-color;
+//   border-radius: 50%;
+
+//   width: 126px;
+//   height: 126px;
+// }
+
+// .footer-text::before {
+//   content: ' ';
+
+//   display: block;
+//   position: absolute;
+//   top: 3120px;
+//   left: 46px;
+
+//   z-index: 15;
+
+//   background: linear-gradient(
+//     151.61deg,
+//     rgba(196, 196, 196, 0.03) -7.48%,
+//     rgba(196, 196, 196, 0) 106.62%
+//   );
+//   backdrop-filter: blur(20px);
+
+//   border-radius: 50%;
+
+//   width: 80px;
+//   height: 80px;
+// }
