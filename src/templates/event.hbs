@@ -1,0 +1,33 @@
+  <img class="modal-small-picto" src="{{imageUrl}}" alt="{{name}}">
+    <div class="modal-detalis-event">
+        <div class="poster">
+            <img  src="{{imageUrl}}" alt="{{name}}">
+        </div>
+        
+        <div class="modal-info-event">
+            <h3 class="info-event-title">INFO</h3>
+            <p class="info-event-text"><a href="{{_embedded.attractions.[0].url}}" class="eventinfo-link" target="_blank">All the details about the artist and
+                the event</a></p>
+            <h3 class="info-event-title">WHEN</h3>
+            <p class="info-event-text">{{dates.start.localDate}} <br> {{dates.start.localTime}} ({{dates.timezone}}) </p>
+            <h3 class="info-event-title">WHERE</h3>
+            <p class="info-event-text">{{_embedded.venues.[0].city.name}}, {{_embedded.venues.[0].country.name}} <br>
+                {{_embedded.venues.[0].name}}</p>
+            <h3 class="info-event-title">WHO</h3>
+            <p class="info-event-text js-author-name">{{name}}</p>
+            <h3 class="info-event-title">PRICES</h3>
+            {{#each priceRanges}}
+            <span class="price-span">
+            {{!-- <img src="../images/ticket1.png" alt=""> --}}
+            <svg class="price-barcode">
+                <use href="./images/symbol-defs.svg#icon-ticket"></use>
+            </svg>
+            <p class="info-event-text first-symbol-text">
+                
+            {{this.type}} {{this.min}} - {{this.max}} {{this.currency}}</p>
+            </span>    
+            <a href={{../url}} class="lightbox__button link" target="_blank">BUY TICKETS</a>
+            {{/each}}
+            </div>
+            
+        </div>

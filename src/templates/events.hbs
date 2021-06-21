@@ -1,0 +1,23 @@
+{{#each this}}
+<li class='event-card' data-id='{{id}}'>
+    <div class="rose-border"></div>
+    <div class="img-trumb">
+    <img class="event-img" alt='{{name}}' loading = "lazy"
+     src='{{images.5.url}}'
+       srcset='
+    {{images.2.url}}  640w,
+    {{images.3.url}} 1024w,
+    {{images.5.url}} 1152w
+  '/>
+  <img class="card-img" loading="lazy" src={{images.url}} alt="#">
+    </div>
+    <div class="event-info">
+        <h2 class="event-name">{{name}}</h2>
+        <h3 class ="event-data">{{dates.start.localDate}}</h3>
+    {{#if _embedded.venues.0.name}} 
+        <span class="location">
+          {{_embedded.venues.0.name}}</span>
+    {{/if}}
+    </div>
+</li>
+{{/each}}

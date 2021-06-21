@@ -8,4 +8,18 @@
 @import './utils/variables';
 @import './utils/visually-hidden';
 @import './utils/breakpoints';
-@import './utils/fonts';
+// @import './utils/fonts';
+@import './utils/placeholders';
+@import './base/container';
+@import './utils/placeholders';
+
+@import './components/events-list';
+@import './components/pagination';
+@import './components/header';
+@import './components/header-title';
+@import './components/section-cards';
+@import './components/logo';
+@import './components/footer';
+@import './components/lightbox';
+@import './components/search-fields';
+@import './components/preloader';
