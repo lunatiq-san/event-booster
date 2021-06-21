@@ -6,7 +6,9 @@
   "homepage": "https://lunatiq-san.github.io/event-booster",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /event-booster/"
+    "build": "parcel build src/*.html --public-url /event-booster/",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
   },
   "repository": {
     "type": "git",

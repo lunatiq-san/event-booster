@@ -20,8 +20,11 @@ function openLightboxOnClick(e) {
 function renderEventCard(card) {
   apiService.id = card.dataset.id;
   apiService.searchEventById()
+    .then(findBestImg)
     .then(currentEvent => {
-      currentEvent.dates.start.localTime = currentEvent.dates.start.localTime.slice(0, -3);
+      if (currentEvent.dates.start.localTime) {
+        currentEvent.dates.start.localTime = currentEvent.dates.start.localTime.slice(0, -3);
+      };
       refs.lightboxContent.insertAdjacentHTML('afterbegin', eventTpl(currentEvent));
     })
     .catch(error => console.log(error));
@@ -62,6 +65,13 @@ function removeEventListeners() {
   refs.closeLightboxBtn.removeEventListener('click', closeLightboxOnClick);
   refs.lightboxBackdrop.removeEventListener('click', onLightboxBackdropClick);
 };
+
+function findBestImg(response) {
+  response.imageUrl = response.images.filter(image => image.width === 640 && image.height === 427)[0].url;
+  return response
+};
+
+
 
 // refs.eventsList.addEventListener('keydown', openLightboxOnEnterKeydown);
 

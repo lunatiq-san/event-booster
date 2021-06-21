@@ -1,2 +1,2 @@
-<svg aria-hidden="true" style="position:absolute;width:0;height:0" xmlns="http://www.w3.org/2000/svg" ><defs><symbol id="icon-ticket1" viewBox="0 0 44 32">
-<path d="M4.91 1.27H0v29.46h4.91V1.27zM17.26 1.27h-4.91v29.46h4.91V1.27zM24.699 1.27h-4.91v29.46h4.91V1.27zM44.19 1.27h-7.291v29.46h7.291V1.27zM9.82 1.27H7.439v29.46H9.82V1.27zM29.46 1.27h-2.381v29.46h2.381V1.27zM34.37 1.27h-2.381v29.46h2.381V1.27z"/></symbol></defs></svg>
+<defs><svg id="barcode"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 32"><path d="M3.222.833H0v19.334h3.222V.833zM11.327.833H8.104v19.334h3.223V.833zM16.209.833h-3.222v19.334h3.222V.833zM29 .833h-4.785v19.334H29V.833zM6.444.833H4.882v19.334h1.562V.833zM19.333.833h-1.562v19.334h1.562V.833zM22.555.833h-1.562v19.334h1.563V.833z" /></svg>
+</defs>
