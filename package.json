@@ -6,7 +6,9 @@
   "homepage": "https://lunatiq-san.github.io/event-booster",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /event-booster/"
+    "build": "parcel build src/*.html --public-url /event-booster/",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -27,7 +29,7 @@
   },
   "dependencies": {
     "lodash.debounce": "^4.0.8",
-    "sweetalert2": "^11.0.17",
+    "sweetalert2": "^11.0.18",
     "tui-pagination": "^3.4.0"
   }
 }

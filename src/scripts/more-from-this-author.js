@@ -6,29 +6,26 @@ import Pagination from 'tui-pagination';
 const refs = getRefs();
 const apiService = new ApiService();
 
-refs.lightbox.addEventListener('click', onMoreBtnClick);
-
 function closeLightboxOnClick() {
   refs.lightbox.classList.remove('is-open');
   refs.lightboxContent.innerHTML = ' ';
+  document.body.classList.remove('is-hidden');
 }
 
-function onMoreBtnClick() {
-  setTimeout(() => {
-    if (refs.lightbox.classList.contains('is-open')) {
-      const eventName = document
-        .querySelector('.name')
-        .textContent.split(' ')
-        .slice(0, 2)
-        .join('%20');
+refs.moreEventsBtn.addEventListener('click', onMoreBtnClick);
 
-      // console.log(eventName.split(' ').slice(0, 2).join('%20'));
-      clearEventsList();
-      fetchEventsByName(eventName);
-      const moreEventsBtn = document.querySelector('.card').lastElementChild;
-      moreEventsBtn.addEventListener('click', closeLightboxOnClick);
-    }
-  }, 500);
+function onMoreBtnClick() {
+  if (refs.lightbox.classList.contains('is-open')) {
+    const eventName = document
+      .querySelector('.js-author-name')
+      .textContent.split(' ')
+      .slice(0, 2)
+      .join('%20');
+    console.log(eventName);
+    clearEventsList();
+    fetchEventsByName(eventName);
+    closeLightboxOnClick();
+  }
 }
 
 function fetchEventsByName(name) {
