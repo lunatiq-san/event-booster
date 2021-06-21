@@ -8,12 +8,14 @@ export default class ApiService {
     this.perPage = 20;
     this.totalElements = null;
     this.id = ' ';
+    this.country = '';
   }
+
 
   async fetchEventsDefault() {
     try {
       this.perPage = onSize();
-      const url = `${BASE_URL}/events.json?&keyword=${this.searchQuery}&apikey=${KEY}&size=${this.perPage}&page=${this.page}&sort=id,asc`;
+      const url = `${BASE_URL}/events.json?&keyword=${this.searchQuery}&apikey=${KEY}&size=${this.perPage}&page=${this.page}&sort=id,asc&countryCode=${this.country}`;
       const response = await fetch(url);
       const { _embedded } = await response.json();
       const { events } = _embedded;
@@ -22,6 +24,7 @@ export default class ApiService {
       console.log(err);
       throw (err = 'Whoops, didn’t find anything. Shall we try to find something else?');
     }
+
 
     function onSize() {
       const windowInnerWidth = window.innerWidth;
@@ -63,4 +66,5 @@ export default class ApiService {
   set query(newQuery) {
     this.searchQuery = newQuery;
   }
+
 }
