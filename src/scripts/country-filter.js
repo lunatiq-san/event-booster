@@ -1,18 +1,20 @@
 import getRefs from './get-refs';
-import ApiService from './apiService';
+import apiService from './apiService';
 import countryList from '../templates/country-list.hbs';
 import eventsTpl from '../templates/events.hbs'
 import countries from '../templates/countries.json';
+import { startPagination, options } from './pagination2';
 
 const refs = getRefs();
-const apiService = new ApiService;
 
 
 refs.searchCountry.insertAdjacentHTML('beforeend', countryList(countries))
 refs.searchCountry.addEventListener('change', onConutrySearch);
 
 function onConutrySearch(e) {
+    e.preventDefault();
     apiService.country = e.target.value;
+    
     fetchEventsDefault();
     
 }
@@ -20,6 +22,9 @@ function onConutrySearch(e) {
 function fetchEventsDefault() {
     apiService.fetchEventsDefault()
         .then(events => {
+            options.totalItems = apiService.totalElements;
+            startPagination();
+
             renderEventList(events)
         }).catch(error => {
         refs.eventsList.innerHTML = `<p class="error-text">Sorry, we found no events in this country. <br> Try to find interesting events in other countries.</p>`;

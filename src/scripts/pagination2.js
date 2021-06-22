@@ -5,10 +5,8 @@ import apiService from './apiService';
 
 const refs = getRefs();
 
-// const apiService = new ApiService();
 
-const options = {
-  totalItems: 980,
+export const options = {
   visiblePages: 5,
   itemsPerPage: 20,
   centerAlign: true,
@@ -19,24 +17,23 @@ if (window.innerWidth < 768) {
   options.visiblePages = 3;
 }
 
-startPagination();
 
 function fetchEvents() {
-  apiService.fetchEventsDefault().then(events => {
-    renderEvent(events);
-  });
-}
+    apiService.fetchEventsDefault().then(events => {
+        renderEvent(events);
+    })
+};
 
 function renderEvent(events) {
   clearEventsList();
   refs.eventsList.insertAdjacentHTML('beforeend', eventsTpl(events));
 }
 
-function startPagination() {
-  const pagination = new Pagination(refs.paginationContainer, options);
-
-  pagination.on('beforeMove', ({ page }) => {
-    apiService.setPage(page);
+export function startPagination() {
+    const pagination = new Pagination(refs.paginationContainer, options);
+    pagination._options.totalItems = apiService.totalElements;
+    pagination.on('beforeMove', ({ page }) => {
+    apiService.setPage(page-1);
 
     fetchEvents();
     scrollToTop();
@@ -53,3 +50,4 @@ function scrollToTop() {
     behavior: 'smooth',
   });
 }
+
