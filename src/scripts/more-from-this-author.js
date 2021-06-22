@@ -1,18 +1,17 @@
 import eventsTpl from '../templates/events.hbs';
-import apiService from './apiService';
+import apiService from './api-service';
 import getRefs from './get-refs';
 import { startPagination, options } from './pagination2';
 
 const refs = getRefs();
-// const apiService = new ApiService();
+
+refs.moreEventsBtn.addEventListener('click', onMoreBtnClick);
 
 function closeLightboxOnClick() {
   refs.lightbox.classList.remove('is-open');
   refs.lightboxContent.innerHTML = ' ';
   document.body.classList.remove('is-hidden');
-}
-
-refs.moreEventsBtn.addEventListener('click', onMoreBtnClick);
+};
 
 function onMoreBtnClick(e) {
   e.preventDefault();
@@ -29,7 +28,7 @@ function onMoreBtnClick(e) {
     fetchEventsByName();
     closeLightboxOnClick();
   }
-}
+};
 
 // function fetchEventsByName(name) {
 //   apiService.fetchEventsByName(name).then(events => {
@@ -45,15 +44,15 @@ function fetchEventsByName() {
     startPagination();
 
   });
-}
+};
 
 function renderEvent(events) {
   refs.eventsList.insertAdjacentHTML('beforeend', eventsTpl(events));
 }
-
+;
 function clearEventsList() {
   refs.eventsList.innerHTML = '';
-}
+};
 // Получить данные с модалки
 
 // по кнопке делать запрос на основании данных с карточки

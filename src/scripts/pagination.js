@@ -1,7 +1,7 @@
 import Pagination from 'tui-pagination';
 import getRefs from './get-refs';
 import eventsTpl from '../templates/events.hbs';
-import apiService from './apiService';
+import apiService from './api-service';
 
 const refs = getRefs();
 

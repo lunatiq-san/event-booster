@@ -6,8 +6,13 @@
         
         <div class="modal-info-event">
             <h3 class="info-event-title">INFO</h3>
+            {{#if _embedded.attractions.[0].url}}
             <p class="info-event-text"><a href="{{_embedded.attractions.[0].url}}" class="eventinfo-link" target="_blank">All the details about the artist and
                 the event</a></p>
+            {{/if}}
+            {{#unless _embedded.attractions.[0].url}}
+            <p class="info-event-text">{{name}}</p>
+            {{/unless}}     
             <h3 class="info-event-title">WHEN</h3>
             <p class="info-event-text">{{dates.start.localDate}} <br> {{dates.start.localTime}} ({{dates.timezone}}) </p>
             <h3 class="info-event-title">WHERE</h3>

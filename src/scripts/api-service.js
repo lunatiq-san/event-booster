@@ -1,5 +1,7 @@
 const KEY = 'Xy0VDFihRxcZE0J3kNsMVc7AsbVJVwmN';
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2';
+const PROPER_IMG_WIDTH = 640;
+const PROPER_IMG_HEIGHT = 427;
 
 class ApiService {
   constructor() {
@@ -9,7 +11,6 @@ class ApiService {
     this.totalElements = 0;
     this.id = ' ';
     this.country = '';
-    this.totalPages = 0;
   }
 
 
@@ -22,6 +23,7 @@ class ApiService {
       this.totalPages = page.totalPages;
       this.totalElements = page.totalElements;
       const { events } = _embedded;
+      this.findBestImgs(events)
       return events;
     } catch (err) {
       console.log(err);
@@ -43,6 +45,7 @@ class ApiService {
     try {
       const response = await fetch(`${BASE_URL}/events/${this.id}.json?apikey=${KEY}`);
       const currentEvent = await response.json();
+      this.findBestImg(currentEvent);
       return currentEvent;
     } catch (err) {
       console.log(err);
@@ -68,6 +71,19 @@ class ApiService {
   set query(newQuery) {
     this.searchQuery = newQuery;
   }
+
+  findBestImgs(events) {
+  events.map(this.findBestImg);
+  return events;
+};
+
+
+
+findBestImg(event) {
+  event.imageUrl = event.images.filter(image => image.width === PROPER_IMG_WIDTH && image.height === PROPER_IMG_HEIGHT)[0].url;
+  return event
+};
+
 
 }
 

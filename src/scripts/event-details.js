@@ -1,12 +1,8 @@
 import getRefs from './get-refs';
-import apiService from './apiService';
+import apiService from './api-service';
 import eventTpl from '../templates/event.hbs';
 
-  const PROPER_IMG_WIDTH = 640;
-const PROPER_IMG_HEIGHT = 427;
-  const ESC_KEY_CODE = 'Escape'
-
-
+const ESC_KEY_CODE = 'Escape';
 const refs = getRefs();
 
 refs.eventsList.addEventListener('click', openLightboxOnClick);
@@ -24,7 +20,6 @@ function openLightboxOnClick(e) {
 function renderEventCard(card) {
   apiService.id = card.dataset.id;
   apiService.searchEventById()
-    .then(findBestImg)
     .then(currentEvent => {
       if (currentEvent.dates.start.localTime) {
         currentEvent.dates.start.localTime = currentEvent.dates.start.localTime.slice(0, -3);
@@ -68,10 +63,6 @@ function removeEventListeners() {
   refs.lightboxBackdrop.removeEventListener('click', onLightboxBackdropClick);
 };
 
-function findBestImg(event) {
-  event.imageUrl = event.images.filter(image => image.width === PROPER_IMG_WIDTH && image.height === PROPER_IMG_HEIGHT)[0].url;
-  return event
-};
 
 
 
