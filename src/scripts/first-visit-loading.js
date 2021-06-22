@@ -5,11 +5,15 @@ import {startPagination, options} from './pagination2'
 
 
 const refs = getRefs();
+const PROPER_IMG_WIDTH = 640;
+const PROPER_IMG_HEIGHT = 427;
 
 // const apiService = new ApiService();
 
 function fetchEventsDefault() {
-    apiService.fetchEventsDefault().then(events => {
+    apiService.fetchEventsDefault()
+        .then(findBestImgs)
+        .then(events => {
         renderEvent(events);
         options.totalItems = apiService.totalElements;
         startPagination();
@@ -23,3 +27,11 @@ function renderEvent(events) {
 
 
 window.addEventListener('load', fetchEventsDefault);
+
+function findBestImgs(events) {
+    events.map(event => event.imageUrl = event.images.filter(image => image.width === PROPER_IMG_WIDTH && image.height === PROPER_IMG_HEIGHT)[0].url);
+    return events;
+
+};
+
+
