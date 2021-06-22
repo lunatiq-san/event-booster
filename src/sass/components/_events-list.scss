@@ -3,6 +3,10 @@
 .events > .container {
   padding-bottom: 60px;
 
+  @media screen and (min-width: $tablet) {
+    margin-top: -25px;
+  }
+
   @media screen and (min-width: $desktop) {
     padding-bottom: 80px;
   }
@@ -77,6 +81,9 @@
 }
 
 .img-trumb > img {
+  position: relative;
+  z-index: 100;
+
   display: block;
   height: 100%;
   width: 100%;
@@ -84,6 +91,9 @@
 }
 
 .event-info {
+  position: relative;
+  z-index: 100;
+
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;

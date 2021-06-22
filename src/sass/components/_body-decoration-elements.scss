@@ -1,230 +1,334 @@
-// left line
+@media screen and (min-width: $tablet) {
+  %body-line {
+    content: ' ';
 
-body::before {
-  content: ' ';
+    display: block;
+    position: fixed;
+    top: 0;
 
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 86px;
+    z-index: 5;
 
-  z-index: 5;
+    border-left: 1px solid $body-decoration-el-color;
 
-  border-left: 1px solid $body-decoration-el-color;
+    width: 1px;
+    height: 100%;
+  }
 
-  width: 1px;
-  height: 100%;
+  %big-circle {
+    content: ' ';
+
+    display: block;
+    position: absolute;
+    z-index: 10;
+
+    width: 126px;
+    height: 126px;
+
+    background-color: #0e0e0e;
+
+    border: 1px solid $body-decoration-el-color;
+    border-radius: 50%;
+  }
+
+  %small-circle {
+    content: ' ';
+
+    display: block;
+    position: absolute;
+    z-index: 15;
+
+    width: 80px;
+    height: 80px;
+
+    background: linear-gradient(
+      151.61deg,
+      rgba(196, 196, 196, 0.03) -7.48%,
+      rgba(196, 196, 196, 0) 106.62%
+    );
+
+    backdrop-filter: blur(20px);
+    border-radius: 50%;
+  }
+
+  %square {
+    content: ' ';
+
+    display: block;
+    position: absolute;
+    z-index: 15;
+
+    width: 238px;
+    height: 238px;
+
+    border: 1px solid $body-decoration-el-color;
+  }
+
+  // left line
+
+  body::before {
+    @extend %body-line;
+
+    left: 86px;
+
+    @media screen and (min-width: $desktop) {
+      left: 115px;
+    }
+  }
+
+  //
+  // right line
+  //
+
+  body::after {
+    @extend %body-line;
+
+    right: 86px;
+
+    @media screen and (min-width: $desktop) {
+      right: 115px;
+    }
+  }
+
+  //
+  // left circles
+  //
+
+  .events-gallery > li:nth-child(1):before {
+    @extend %big-circle;
+
+    top: 150px;
+    left: -72px;
+
+    @media screen and (min-width: $desktop) {
+      display: none;
+    }
+  }
+
+  .events-gallery > li:nth-child(1)::after {
+    @extend %small-circle;
+
+    top: 174px;
+    left: -49px;
+
+    @media screen and (min-width: $desktop) {
+      display: none;
+    }
+  }
+
+  .events-gallery > li:nth-child(5)::before {
+    @extend %big-circle;
+
+    top: -20px;
+    left: -180px;
+
+    width: 216px;
+    height: 216px;
+
+    @media screen and (max-width: $tablet-max) {
+      display: none;
+    }
+  }
+
+  .events-gallery > li:nth-child(5)::after {
+    @extend %small-circle;
+
+    top: 20px;
+    left: -140px;
+
+    width: 136px;
+    height: 136px;
+
+    @media screen and (max-width: $tablet-max) {
+      display: none;
+    }
+  }
+
+  //
+  // left square
+  //
+
+  .events-gallery > li:nth-child(13):before {
+    @extend %square;
+
+    border-radius: 0 100% 0 0;
+
+    top: -180px;
+    left: -70px;
+
+    @media screen and (min-width: $desktop) {
+      top: -250px;
+      left: -140px;
+
+      width: 335px;
+      height: 335px;
+    }
+  }
+
+  // left bottom cicles
+  // not done yet *** need good footer
+
+  //
+  //  right square
+  //
+
+  .events-gallery > li:nth-child(6):before {
+    @extend %square;
+
+    border-radius: 100% 0 0 0;
+
+    bottom: -27px;
+    right: -50px;
+
+    @media screen and (min-width: $desktop) {
+      display: none;
+    }
+  }
+
+  .events-gallery > li:nth-child(4):before {
+    @extend %square;
+
+    border-radius: 100% 0 0 0;
+
+    top: 100px;
+    right: -130px;
+
+    width: 335px;
+    height: 335px;
+
+    @media screen and (max-width: $tablet-max) {
+      display: none;
+    }
+  }
+
+  //
+  // right circles
+  //
+
+  .events-gallery > li:nth-child(12):before {
+    @extend %big-circle;
+
+    bottom: 50px;
+    right: -55px;
+
+    @media screen and (min-width: $desktop) {
+      display: none;
+    }
+  }
+
+  .events-gallery > li:nth-child(12)::after {
+    @extend %small-circle;
+
+    bottom: 72px;
+    right: -32px;
+
+    @media screen and (min-width: $desktop) {
+      display: none;
+    }
+  }
+
+  .events-gallery > li:nth-child(16):before {
+    @extend %big-circle;
+
+    top: -200px;
+    right: -180px;
+
+    width: 216px;
+    height: 216px;
+
+    @media screen and (max-width: $tablet-max) {
+      display: none;
+    }
+  }
+
+  .events-gallery > li:nth-child(16)::after {
+    @extend %small-circle;
+
+    top: -160px;
+    right: -140px;
+
+    width: 136px;
+    height: 136px;
+
+    @media screen and (max-width: $tablet-max) {
+      display: none;
+    }
+  }
+
+  // right bootom square
+
+  .events-gallery > li:nth-child(21)::before {
+    @extend %square;
+
+    border-radius: 100% 0 0 0;
+
+    bottom: 25px;
+    right: -50px;
+
+    @media screen and (min-width: $desktop) {
+      display: none;
+    }
+  }
+
+  .events-gallery > li:nth-child(20):before {
+    @extend %square;
+
+    border-radius: 100% 0 0 0;
+
+    bottom: -80px;
+    right: -130px;
+
+    width: 335px;
+    height: 335px;
+
+    @media screen and (max-width: $tablet-max) {
+      display: none;
+    }
+  }
+
+  // footer {
+  //   position: relative;
+  //   overflow: hidden;
+  // }
+
+  // .footer::before {
+  //   content: ' ';
+
+  //   display: block;
+  //   position: absolute;
+  //   bottom: -60px;
+  //   left: 23px;
+
+  //   z-index: 15;
+
+  //   background-color: #0e0e0e;
+
+  //   border: 1px solid $body-decoration-el-color;
+  //   border-radius: 50%;
+
+  //   width: 126px;
+  //   height: 126px;
+  // }
+
+  // .footer-text::before {
+  //   content: ' ';
+
+  //   display: block;
+  //   position: absolute;
+  //   top: 3120px;
+  //   left: 46px;
+
+  //   z-index: 15;
+
+  //   background: linear-gradient(
+  //     151.61deg,
+  //     rgba(196, 196, 196, 0.03) -7.48%,
+  //     rgba(196, 196, 196, 0) 106.62%
+  //   );
+  //   backdrop-filter: blur(20px);
+
+  //   border-radius: 50%;
+
+  //   width: 80px;
+  //   height: 80px;
+  // }
 }
-
-// right line
-
-body::after {
-  content: ' ';
-
-  display: block;
-  position: fixed;
-  top: 0;
-  right: 86px;
-
-  z-index: 5;
-
-  border-left: 1px solid $body-decoration-el-color;
-
-  width: 1px;
-  height: 100%;
-}
-
-// left circles
-
-header::before {
-  content: ' ';
-
-  display: block;
-  position: absolute;
-  top: 468px;
-  left: 23px;
-
-  z-index: 10;
-
-  background-color: #0e0e0e;
-
-  border: 1px solid $body-decoration-el-color;
-  border-radius: 50%;
-
-  width: 126px;
-  height: 126px;
-}
-
-.header-content::before {
-  content: ' ';
-
-  display: block;
-  position: absolute;
-  top: 492px;
-  left: 46px;
-
-  z-index: 15;
-
-  background: linear-gradient(
-    151.61deg,
-    rgba(196, 196, 196, 0.03) -7.48%,
-    rgba(196, 196, 196, 0) 106.62%
-  );
-  backdrop-filter: blur(20px);
-
-  border-radius: 50%;
-
-  width: 80px;
-  height: 80px;
-}
-
-// left square
-
-.hero::before {
-  content: ' ';
-
-  display: block;
-  position: absolute;
-  top: 1585px;
-  left: 25px;
-
-  z-index: 15;
-
-  border: 1px solid $body-decoration-el-color;
-  border-radius: 0 100% 0 0;
-
-  width: 238px;
-  height: 238px;
-}
-
-// left bottom cicles
-// not done yet *** need good footer
-
-//  right square
-
-header::after {
-  content: ' ';
-
-  display: block;
-  position: absolute;
-  top: 659px;
-  right: 25px;
-
-  z-index: 15;
-
-  border: 1px solid $body-decoration-el-color;
-  border-radius: 100% 0 0 0;
-
-  width: 238px;
-  height: 238px;
-}
-
-// right circles
-
-main::before {
-  content: ' ';
-
-  display: block;
-  position: absolute;
-  top: 1200px;
-  right: 23px;
-
-  z-index: 10;
-
-  background-color: #0e0e0e;
-
-  border: 1px solid $body-decoration-el-color;
-  border-radius: 50%;
-
-  width: 126px;
-  height: 126px;
-}
-
-.events::before {
-  content: ' ';
-
-  display: block;
-  position: absolute;
-  top: 1224px;
-  right: 46px;
-
-  z-index: 15;
-
-  background: linear-gradient(
-    151.61deg,
-    rgba(196, 196, 196, 0.03) -7.48%,
-    rgba(196, 196, 196, 0) 106.62%
-  );
-  backdrop-filter: blur(20px);
-
-  border-radius: 50%;
-
-  width: 80px;
-  height: 80px;
-}
-
-// right bootom square
-
-.hero::after {
-  content: ' ';
-
-  display: block;
-  position: absolute;
-  top: 2720px;
-  right: 25px;
-
-  z-index: 15;
-
-  border: 1px solid $body-decoration-el-color;
-  border-radius: 100% 0 0 0;
-
-  width: 238px;
-  height: 238px;
-}
-
-// footer {
-//   position: relative;
-//   overflow: hidden;
-// }
-
-// .footer::before {
-//   content: ' ';
-
-//   display: block;
-//   position: absolute;
-//   bottom: -60px;
-//   left: 23px;
-
-//   z-index: 15;
-
-//   background-color: #0e0e0e;
-
-//   border: 1px solid $body-decoration-el-color;
-//   border-radius: 50%;
-
-//   width: 126px;
-//   height: 126px;
-// }
-
-// .footer-text::before {
-//   content: ' ';
-
-//   display: block;
-//   position: absolute;
-//   top: 3120px;
-//   left: 46px;
-
-//   z-index: 15;
-
-//   background: linear-gradient(
-//     151.61deg,
-//     rgba(196, 196, 196, 0.03) -7.48%,
-//     rgba(196, 196, 196, 0) 106.62%
-//   );
-//   backdrop-filter: blur(20px);
-
-//   border-radius: 50%;
-
-//   width: 80px;
-//   height: 80px;
-// }
