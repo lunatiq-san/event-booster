@@ -1,3 +1,7 @@
+.hero-field-container {
+  text-align: center;
+}
+
 .hero-field {
   position: relative;
   display: block;
@@ -18,8 +22,6 @@
 .hero-input {
   @extend %search-text;
 
-  margin-left: auto;
-  margin-right: auto;
   padding: 10px 50px 10px 30px;
 
   width: 270px;
@@ -30,6 +32,8 @@
 
   background: $field-background-color;
   backdrop-filter: blur(20px);
+
+  outline: none;
 }
 
 .input-icon {

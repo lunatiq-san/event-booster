@@ -61,3 +61,15 @@
     padding-bottom: 192px;
   }
 }
+
+.header-gradient {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  background: linear-gradient(180deg, rgba(13, 13, 13, 0.19) 0%, rgba(14, 14, 14, 0.8) 100%);
+
+  width: inherit;
+  height: 102px;
+}
