@@ -4,6 +4,9 @@ import eventsTpl from '../templates/events.hbs';
 import apiService from './apiService';
 
 const refs = getRefs();
+const PROPER_IMG_WIDTH = 640;
+const PROPER_IMG_HEIGHT = 427;
+
 
 
 export const options = {
@@ -19,7 +22,9 @@ if (window.innerWidth < 768) {
 
 
 function fetchEvents() {
-    apiService.fetchEventsDefault().then(events => {
+  apiService.fetchEventsDefault()
+    .then(findBestImgs)
+    .then(events => {
         renderEvent(events);
     })
 };
@@ -51,3 +56,8 @@ function scrollToTop() {
   });
 }
 
+function findBestImgs(events) {
+  events.map(event => event.imageUrl = event.images.filter(image => image.width === PROPER_IMG_WIDTH && image.height === PROPER_IMG_HEIGHT)[0].url);
+  return events;
+
+};
