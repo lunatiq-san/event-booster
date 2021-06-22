@@ -1,12 +1,11 @@
 import eventsTpl from '../templates/events.hbs'
-import ApiService from './apiService';
+import apiService from './apiService';
 import getRefs from './get-refs';
 
 
 const refs = getRefs();
 
-const apiService = new ApiService();
-
+// const apiService = new ApiService();
 
 function fetchEventsDefault() {
     apiService.fetchEventsDefault().then(events => {

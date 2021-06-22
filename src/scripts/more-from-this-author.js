@@ -1,10 +1,10 @@
 import eventsTpl from '../templates/events.hbs';
-import ApiService from './apiService';
+import apiService from './apiService';
 import getRefs from './get-refs';
 import Pagination from 'tui-pagination';
 
 const refs = getRefs();
-const apiService = new ApiService();
+// const apiService = new ApiService();
 
 function closeLightboxOnClick() {
   refs.lightbox.classList.remove('is-open');

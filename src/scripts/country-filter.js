@@ -1,19 +1,23 @@
 import getRefs from './get-refs';
-import ApiService from './apiService';
+import apiService from './apiService';
 import countryList from '../templates/country-list.hbs';
 import eventsTpl from '../templates/events.hbs'
 import countries from '../templates/countries.json';
 
 const refs = getRefs();
-const apiService = new ApiService;
+// const apiService = new ApiService;
 
 
 refs.searchCountry.insertAdjacentHTML('beforeend', countryList(countries))
 refs.searchCountry.addEventListener('change', onConutrySearch);
 
 function onConutrySearch(e) {
+    e.preventDefault();
+    console.log('before', apiService);
     apiService.country = e.target.value;
+    
     fetchEventsDefault();
+    console.log('after', apiService);
     
 }
 
