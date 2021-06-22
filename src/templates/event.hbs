@@ -17,6 +17,7 @@
             <h3 class="info-event-title">WHO</h3>
             <p class="info-event-text js-author-name">{{name}}</p>
             <h3 class="info-event-title">PRICES</h3>
+            {{#if priceRanges}}
             {{#each priceRanges}}
             <p class="info-event-text prise-text">
                 <svg class="barcode" aria-label="Штрих-код">
@@ -27,6 +28,10 @@
             </span>    
             <a href={{../url}} class="lightbox__button link" target="_blank">BUY TICKETS</a>
             {{/each}}
+            {{/if}}
+            {{#unless priceRanges}}
+            <p class="info-event-text prise-text">Tickets are not yet available. Please, try again later.</p>
+            {{/unless}}
         </div>
     </div>
 

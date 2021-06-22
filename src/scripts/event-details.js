@@ -66,9 +66,11 @@ function removeEventListeners() {
   refs.lightboxBackdrop.removeEventListener('click', onLightboxBackdropClick);
 };
 
-function findBestImg(response) {
-  response.imageUrl = response.images.filter(image => image.width === 640 && image.height === 427)[0].url;
-  return response
+function findBestImg(event) {
+  const properImgWidth = 640;
+  const properImgHeight = 427;
+  event.imageUrl = event.images.filter(image => image.width === properImgWidth && image.height === properImgHeight)[0].url;
+  return event
 };
 
 
