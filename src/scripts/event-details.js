@@ -2,8 +2,12 @@ import getRefs from './get-refs';
 import apiService from './apiService';
 import eventTpl from '../templates/event.hbs';
 
+  const PROPER_IMG_WIDTH = 640;
+const PROPER_IMG_HEIGHT = 427;
+  const ESC_KEY_CODE = 'Escape'
+
+
 const refs = getRefs();
-// const apiService = new ApiService;
 
 refs.eventsList.addEventListener('click', openLightboxOnClick);
 
@@ -39,9 +43,7 @@ function closeLightboxOnClick() {
 };
 
 function closeLightboxOnEscKeyPress(e) {
-  const ESC_KEY_CODE = 'Escape';
   const isEscKey = e.code === ESC_KEY_CODE;
-
   if (isEscKey) {
     closeLightboxOnClick();
   }
@@ -67,9 +69,7 @@ function removeEventListeners() {
 };
 
 function findBestImg(event) {
-  const properImgWidth = 640;
-  const properImgHeight = 427;
-  event.imageUrl = event.images.filter(image => image.width === properImgWidth && image.height === properImgHeight)[0].url;
+  event.imageUrl = event.images.filter(image => image.width === PROPER_IMG_WIDTH && image.height === PROPER_IMG_HEIGHT)[0].url;
   return event
 };
 

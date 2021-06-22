@@ -1,7 +1,7 @@
 import eventsTpl from '../templates/events.hbs';
 import apiService from './apiService';
 import getRefs from './get-refs';
-import Pagination from 'tui-pagination';
+import { startPagination, options } from './pagination2';
 
 const refs = getRefs();
 // const apiService = new ApiService();
@@ -14,23 +14,36 @@ function closeLightboxOnClick() {
 
 refs.moreEventsBtn.addEventListener('click', onMoreBtnClick);
 
-function onMoreBtnClick() {
+function onMoreBtnClick(e) {
+  e.preventDefault();
   if (refs.lightbox.classList.contains('is-open')) {
     const eventName = document
       .querySelector('.js-author-name')
       .textContent.split(' ')
       .slice(0, 2)
       .join('%20');
-    console.log(eventName);
+    // console.log(eventName);
+    apiService.searchQuery = eventName;
     clearEventsList();
-    fetchEventsByName(eventName);
+    // fetchEventsByName(eventName);
+    fetchEventsByName();
     closeLightboxOnClick();
   }
 }
 
-function fetchEventsByName(name) {
-  apiService.fetchEventsByName(name).then(events => {
+// function fetchEventsByName(name) {
+//   apiService.fetchEventsByName(name).then(events => {
+//     renderEvent(events);
+
+//   });
+// }
+
+function fetchEventsByName() {
+  apiService.fetchEventsDefault().then(events => {
     renderEvent(events);
+    options.totalItems = apiService.totalElements;
+    startPagination();
+
   });
 }
 

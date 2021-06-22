@@ -3,6 +3,8 @@ import getRefs from './get-refs';
 import debounce from 'lodash.debounce';
 import eventsTpl from '../templates/events.hbs';
 import Swal from 'sweetalert2';
+import { startPagination, options } from './pagination2';
+
 
 const refs = getRefs();
 
@@ -10,15 +12,19 @@ const refs = getRefs();
 
 refs.searchQuery.addEventListener('input', debounce(onSearch, 1000));
 
-function onSearch(e) {
+export function onSearch(e) {
     e.preventDefault();
-    console.log('before', apiService);
     apiService.query = e.target.value;
     if (apiService.query.trim() === '') {
         return resetPage();
     }
-    apiService.fetchEventsDefault().then(renderEventsCard).catch(onError);
-    console.log('after',apiService);
+    apiService.fetchEventsDefault().then(events => {
+        renderEventsCard(events);
+        options.totalItems = apiService.totalElements;
+        startPagination();
+
+    })
+        .catch(onError);
 }
 
 function onError() {

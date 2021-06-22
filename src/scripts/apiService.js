@@ -6,7 +6,7 @@ class ApiService {
     this.searchQuery = '';
     this.page = 0;
     this.perPage = 20;
-    this.totalElements = null;
+    this.totalElements = 0;
     this.id = ' ';
     this.country = '';
     this.totalPages = 0;
@@ -19,7 +19,8 @@ class ApiService {
       const url = `${BASE_URL}/events.json?&keyword=${this.searchQuery}&apikey=${KEY}&size=${this.perPage}&page=${this.page}&sort=id,asc&countryCode=${this.country}`;
       const response = await fetch(url);
       const { _embedded, page } = await response.json();
-      this.totalPages = page.totalPages
+      this.totalPages = page.totalPages;
+      this.totalElements = page.totalElements;
       const { events } = _embedded;
       return events;
     } catch (err) {
@@ -48,14 +49,13 @@ class ApiService {
     }
   }
 
-  fetchEventsByName(name) {
-    // this.perPage = onSize();
-    const url = `${BASE_URL}/events.json?&keyword=${name}&apikey=${KEY}&size=${this.perPage}&page=${this.page}`;
-    return fetch(url)
-      .then(response => response.json())
-      .then(({ _embedded }) => _embedded)
-      .then(({ events }) => events);
-  }
+  // fetchEventsByName(name) {
+  //   const url = `${BASE_URL}/events.json?&keyword=${name}&apikey=${KEY}&size=${this.perPage}&page=${this.page}`;
+  //   return fetch(url)
+  //     .then(response => response.json())
+  //     .then(({ _embedded }) => _embedded)
+  //     .then(({ events }) => events);
+  // }
 
   setPage(page) {
     this.page = page;

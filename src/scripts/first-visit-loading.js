@@ -1,6 +1,7 @@
 import eventsTpl from '../templates/events.hbs'
 import apiService from './apiService';
 import getRefs from './get-refs';
+import {startPagination, options} from './pagination2'
 
 
 const refs = getRefs();
@@ -9,8 +10,9 @@ const refs = getRefs();
 
 function fetchEventsDefault() {
     apiService.fetchEventsDefault().then(events => {
-    
         renderEvent(events);
+        options.totalItems = apiService.totalElements;
+        startPagination();
     });
 }
 
