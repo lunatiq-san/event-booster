@@ -56,8 +56,8 @@
   header:before {
     @extend %big-circle;
 
-    bottom: -250px;
-    left: 190px;
+    bottom: -260px;
+    left: 155px;
 
     @media screen and (min-width: $desktop) {
       display: none;
@@ -66,8 +66,8 @@
   header::after {
     @extend %small-circle;
 
-    bottom: -228px;
-    left: 213px;
+    bottom: -238px;
+    left: 178px;
 
     @media screen and (min-width: $desktop) {
       display: none;
@@ -78,7 +78,7 @@
     @extend %big-circle;
 
     bottom: -200px;
-    left: -180px;
+    left: -170px;
 
     width: 216px;
     height: 216px;
@@ -92,7 +92,7 @@
     @extend %small-circle;
 
     bottom: -160px;
-    left: -140px;
+    left: -130px;
 
     width: 136px;
     height: 136px;
@@ -139,13 +139,6 @@
   // left bottom cicles
   //
 
-  footer {
-    position: absolute;
-    clip: rect(-200px, auto, auto, auto);
-
-    width: 100%;
-  }
-
   footer .container {
     position: relative;
     z-index: 100;
@@ -154,30 +147,39 @@
   footer .container::before {
     @extend %big-circle;
 
-    bottom: -65px;
-    left: -50px;
+    height: 63px;
+
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    border-bottom: none;
+
+    bottom: 0px;
+    left: -65px;
 
     @media screen and (min-width: $desktop) {
-      bottom: -110px;
-      left: -40px;
+      left: -110px;
 
       width: 216px;
-      height: 216px;
+      height: 108px;
     }
   }
 
   footer .container::after {
     @extend %small-circle;
 
-    bottom: -40px;
-    left: -25px;
+    height: 40px;
+
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    border-bottom: none;
+
+    bottom: 0px;
+    left: -40px;
 
     @media screen and (min-width: $desktop) {
-      bottom: -70px;
-      left: 0px;
+      bottom: 0px;
+      left: -70px;
 
       width: 136px;
-      height: 136px;
+      height: 65px;
     }
   }
 
@@ -222,7 +224,7 @@
     @extend %big-circle;
 
     bottom: 90px;
-    right: -265px;
+    right: -255px;
 
     @media screen and (min-width: $desktop) {
       display: none;
@@ -233,7 +235,7 @@
     @extend %small-circle;
 
     bottom: 114px;
-    right: -242px;
+    right: -232px;
 
     @media screen and (min-width: $desktop) {
       display: none;
@@ -244,7 +246,7 @@
     @extend %big-circle;
 
     bottom: -35px;
-    right: -150px;
+    right: -165px;
 
     width: 216px;
     height: 216px;
@@ -258,7 +260,7 @@
     @extend %small-circle;
 
     bottom: 5px;
-    right: -110px;
+    right: -125px;
 
     width: 136px;
     height: 136px;
