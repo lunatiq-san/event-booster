@@ -6,13 +6,12 @@
         
         <div class="modal-info-event">
             <h3 class="info-event-title">INFO</h3>
+            <p class="info-event-text"> {{name}} <br>
             {{#if _embedded.attractions.[0].url}}
-            <p class="info-event-text"><a href="{{_embedded.attractions.[0].url}}" class="eventinfo-link" target="_blank">All the details about the artist and
-                the event</a></p>
+                <a href="{{_embedded.attractions.[0].url}}" class="eventinfo-link" target="_blank">All the details about the artist and
+                the event</a>
             {{/if}}
-            {{#unless _embedded.attractions.[0].url}}
-            <p class="info-event-text">{{name}}</p>
-            {{/unless}}     
+                </p>
             <h3 class="info-event-title">WHEN</h3>
             <p class="info-event-text">{{dates.start.localDate}} <br> {{dates.start.localTime}} ({{dates.timezone}}) </p>
             <h3 class="info-event-title">WHERE</h3>
@@ -20,7 +19,12 @@
             &#127757; <a href="https://www.openstreetmap.org/?mlat={{_embedded.venues.[0].location.latitude}}&mlon={{_embedded.venues.[0].location.longitude}}map=16/{{_embedded.venues.[0].location.latitude}}/{{_embedded.venues.[0].location.longitude}}" target="_blank">
             {{_embedded.venues.[0].name}}</a> </p>
             <h3 class="info-event-title">WHO</h3>
+            {{#if _embedded.attractions.[0].name}}
+            <p class="info-event-text js-author-name">{{_embedded.attractions.[0].name}}</p>
+            {{/if}}
+            {{#unless _embedded.attractions.[0].name}}
             <p class="info-event-text js-author-name">{{name}}</p>
+            {{/unless}}     
             <h3 class="info-event-title">PRICES</h3>
             {{#if priceRanges}}
             {{#each priceRanges}}
