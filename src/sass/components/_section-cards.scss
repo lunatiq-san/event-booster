@@ -8,6 +8,8 @@
   margin-right: auto;
   margin-left: auto;
 
+  min-height: 210px;
+
   @media (min-width: $tablet) {
     width: 610px;
   }
