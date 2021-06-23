@@ -4,10 +4,20 @@
   padding-bottom: 60px;
 
   @media screen and (min-width: $tablet) {
+    width: 597px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-left: 1px solid #212121;
+    border-right: 1px solid #212121;
     margin-top: -25px;
   }
 
   @media screen and (min-width: $desktop) {
+    width: 1052px;
+    padding-left: 60px;
+    padding-right: 60px;
+    border-left: 1px solid #212121;
+    border-right: 1px solid #212121;
     padding-bottom: 80px;
   }
 }
@@ -222,8 +232,6 @@
 .img-trumb {
   height: 161px;
   width: 128px;
-  margin-left: auto;
-  margin-right: auto;
   border-radius: 50% 0 50% 0;
   overflow: hidden;
   transition: $timing-function;
