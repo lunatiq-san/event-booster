@@ -2,9 +2,25 @@
 
 .events > .container {
   padding-bottom: 60px;
+  margin-top: -45px;
+
+  @media screen and (min-width: $tablet) {
+    width: 597px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-left: 1px solid #212121;
+    border-right: 1px solid #212121;
+    margin-top: -10px;
+  }
 
   @media screen and (min-width: $desktop) {
+    width: 1052px;
+    padding-left: 60px;
+    padding-right: 60px;
+    border-left: 1px solid #212121;
+    border-right: 1px solid #212121;
     padding-bottom: 80px;
+    margin-top: -15px;
   }
 }
 
@@ -22,6 +38,7 @@
   min-height: 231px;
   margin-bottom: 33px;
   position: relative;
+
   cursor: pointer;
   transition: $timing-function;
 
@@ -39,8 +56,8 @@
 }
 @-webkit-keyframes bounce-in-top {
   0% {
-    -webkit-transform: translateY(-500px);
-    transform: translateY(-500px);
+    -webkit-transform: translateY(-200px);
+    transform: translateY(-200px);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
     opacity: 0;
@@ -91,8 +108,8 @@
 }
 @keyframes bounce-in-top {
   0% {
-    -webkit-transform: translateY(-500px);
-    transform: translateY(-500px);
+    -webkit-transform: translateY(-200px);
+    transform: translateY(-200px);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
     opacity: 0;
@@ -218,8 +235,6 @@
 .img-trumb {
   height: 161px;
   width: 128px;
-  margin-left: auto;
-  margin-right: auto;
   border-radius: 50% 0 50% 0;
   overflow: hidden;
   transition: $timing-function;
@@ -236,6 +251,9 @@
 }
 
 .img-trumb > img {
+  position: relative;
+  z-index: 100;
+
   display: block;
   height: 100%;
   width: 100%;
@@ -243,6 +261,9 @@
 }
 
 .event-info {
+  position: relative;
+  z-index: 100;
+
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -294,6 +315,8 @@
 
 .error-text {
   @extend %event-name-text;
+  margin-top: 100px;
+
   margin-bottom: 5px;
   flex-grow: 1;
 

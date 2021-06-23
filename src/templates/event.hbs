@@ -6,28 +6,42 @@
         
         <div class="modal-info-event">
             <h3 class="info-event-title">INFO</h3>
-            <p class="info-event-text"><a href="{{_embedded.attractions.[0].url}}" class="eventinfo-link" target="_blank">All the details about the artist and
-                the event</a></p>
+            <p class="info-event-text"> {{name}} <br>
+            {{#if _embedded.attractions.[0].url}}
+                <a href="{{_embedded.attractions.[0].url}}" class="eventinfo-link" target="_blank">All the details about the artist and
+                the event</a>
+            {{/if}}
+                </p>
             <h3 class="info-event-title">WHEN</h3>
             <p class="info-event-text">{{dates.start.localDate}} <br> {{dates.start.localTime}} ({{dates.timezone}}) </p>
             <h3 class="info-event-title">WHERE</h3>
             <p class="info-event-text">{{_embedded.venues.[0].city.name}}, {{_embedded.venues.[0].country.name}} <br>
-                {{_embedded.venues.[0].name}}</p>
+            &#127757; <a href="https://www.openstreetmap.org/?mlat={{_embedded.venues.[0].location.latitude}}&mlon={{_embedded.venues.[0].location.longitude}}map=16/{{_embedded.venues.[0].location.latitude}}/{{_embedded.venues.[0].location.longitude}}" target="_blank">
+            {{_embedded.venues.[0].name}}</a> </p>
             <h3 class="info-event-title">WHO</h3>
+            {{#if _embedded.attractions.[0].name}}
+            <p class="info-event-text js-author-name">{{_embedded.attractions.[0].name}}</p>
+            {{/if}}
+            {{#unless _embedded.attractions.[0].name}}
             <p class="info-event-text js-author-name">{{name}}</p>
+            {{/unless}}     
             <h3 class="info-event-title">PRICES</h3>
+            {{#if priceRanges}}
             {{#each priceRanges}}
-            <span class="price-span">
-            {{!-- <img src="../images/ticket1.png" alt=""> --}}
-            <svg class="price-barcode">
-                <use href="./images/symbol-defs.svg#icon-ticket"></use>
-            </svg>
-            <p class="info-event-text first-symbol-text">
-                
+            <p class="info-event-text prise-text">
+                <svg class="barcode" aria-label="Штрих-код">
+                    <use href="./images/symbol-defs.svg#icon-ticket"></use>
+                </svg>
+
             {{this.type}} {{this.min}} - {{this.max}} {{this.currency}}</p>
             </span>    
             <a href={{../url}} class="lightbox__button link" target="_blank">BUY TICKETS</a>
             {{/each}}
-            </div>
-            
+            {{/if}}
+            {{#unless priceRanges}}
+            <p class="info-event-text prise-text">Tickets are not yet available. Please, try again later.</p>
+            {{/unless}}
         </div>
+    </div>
+
+

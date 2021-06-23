@@ -1,21 +1,28 @@
-import NewApiService from './apiService';
+import apiService from './api-service';
 import getRefs from './get-refs';
 import debounce from 'lodash.debounce';
 import eventsTpl from '../templates/events.hbs';
 import Swal from 'sweetalert2';
+import { startPagination, options } from './pagination2';
+
 
 const refs = getRefs();
 
-const apiService = new NewApiService();
-
 refs.searchQuery.addEventListener('input', debounce(onSearch, 1000));
 
-function onSearch(e) {
+export function onSearch(e) {
+    e.preventDefault();
     apiService.query = e.target.value;
-    if (apiService.query.trim() === '') {
-        return resetPage();
-    }
-    apiService.fetchEventsDefault().then(renderEventsCard).catch(onError);
+    // if (apiService.query.trim() === '') {
+    //     return resetPage();
+    // }
+    apiService.fetchEventsDefault().then(events => {
+        renderEventsCard(events);
+        options.totalItems = apiService.totalElements;
+        startPagination();
+
+    })
+        .catch(onError);
 }
 
 function onError() {
@@ -25,6 +32,6 @@ function renderEventsCard(events) {
     const markup = eventsTpl(events);
     refs.eventsList.innerHTML = markup;
 }
-function resetPage() {
-    apiService.fetchEventsDefault().then(renderEventsCard);
-}
+// function resetPage() {
+//     apiService.fetchEventsDefault().then(renderEventsCard);
+// }

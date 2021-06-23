@@ -1,24 +1,27 @@
 import eventsTpl from '../templates/events.hbs'
-import ApiService from './apiService';
+import apiService from './api-service';
 import getRefs from './get-refs';
+import {startPagination, options} from './pagination2'
 
 
 const refs = getRefs();
 
-const apiService = new ApiService();
-
+window.addEventListener('load', fetchEventsDefault);
 
 function fetchEventsDefault() {
-    apiService.fetchEventsDefault().then(events => {
-    
+    apiService.fetchEventsDefault()
+        .then(events => {
         renderEvent(events);
+        options.totalItems = apiService.totalElements;
+        startPagination();
     });
-}
+};
 
 
 function renderEvent(events) {
     refs.eventsList.insertAdjacentHTML('beforeend', eventsTpl(events));
-}
+};
 
 
-window.addEventListener('load', fetchEventsDefault);
+
+

@@ -1,9 +1,9 @@
 import getRefs from './get-refs';
-import ApiService from './apiService';
+import apiService from './api-service';
 import eventTpl from '../templates/event.hbs';
 
+const ESC_KEY_CODE = 'Escape';
 const refs = getRefs();
-const apiService = new ApiService;
 
 refs.eventsList.addEventListener('click', openLightboxOnClick);
 
@@ -20,7 +20,6 @@ function openLightboxOnClick(e) {
 function renderEventCard(card) {
   apiService.id = card.dataset.id;
   apiService.searchEventById()
-    .then(findBestImg)
     .then(currentEvent => {
       if (currentEvent.dates.start.localTime) {
         currentEvent.dates.start.localTime = currentEvent.dates.start.localTime.slice(0, -3);
@@ -39,9 +38,7 @@ function closeLightboxOnClick() {
 };
 
 function closeLightboxOnEscKeyPress(e) {
-  const ESC_KEY_CODE = 'Escape';
   const isEscKey = e.code === ESC_KEY_CODE;
-
   if (isEscKey) {
     closeLightboxOnClick();
   }
@@ -66,10 +63,6 @@ function removeEventListeners() {
   refs.lightboxBackdrop.removeEventListener('click', onLightboxBackdropClick);
 };
 
-function findBestImg(response) {
-  response.imageUrl = response.images.filter(image => image.width === 640 && image.height === 427)[0].url;
-  return response
-};
 
 
 
