@@ -2,12 +2,14 @@
 
 .events > .container {
   padding-bottom: 60px;
+  margin-top: -45px;
 
   @media screen and (min-width: $tablet) {
-    margin-top: -25px;
+    margin-top: -10px;
   }
 
   @media screen and (min-width: $desktop) {
+    margin-top: -15px;
     padding-bottom: 80px;
   }
 }
@@ -26,6 +28,7 @@
   min-height: 231px;
   margin-bottom: 33px;
   position: relative;
+
   cursor: pointer;
   transition: $timing-function;
 
