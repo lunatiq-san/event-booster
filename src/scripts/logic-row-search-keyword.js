@@ -13,9 +13,9 @@ refs.searchQuery.addEventListener('input', debounce(onSearch, 1000));
 export function onSearch(e) {
     e.preventDefault();
     apiService.query = e.target.value;
-    if (apiService.query.trim() === '') {
-        return resetPage();
-    }
+    // if (apiService.query.trim() === '') {
+    //     return resetPage();
+    // }
     apiService.fetchEventsDefault().then(events => {
         renderEventsCard(events);
         options.totalItems = apiService.totalElements;
