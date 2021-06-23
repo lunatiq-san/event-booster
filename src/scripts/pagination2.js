@@ -1,13 +1,9 @@
 import Pagination from 'tui-pagination';
 import getRefs from './get-refs';
 import eventsTpl from '../templates/events.hbs';
-import apiService from './apiService';
+import apiService from './api-service';
 
 const refs = getRefs();
-const PROPER_IMG_WIDTH = 640;
-const PROPER_IMG_HEIGHT = 427;
-
-
 
 export const options = {
   visiblePages: 5,
@@ -23,7 +19,6 @@ if (window.innerWidth < 768) {
 
 function fetchEvents() {
   apiService.fetchEventsDefault()
-    .then(findBestImgs)
     .then(events => {
         renderEvent(events);
     })
@@ -54,10 +49,5 @@ function scrollToTop() {
     top: 0,
     behavior: 'smooth',
   });
-}
-
-function findBestImgs(events) {
-  events.map(event => event.imageUrl = event.images.filter(image => image.width === PROPER_IMG_WIDTH && image.height === PROPER_IMG_HEIGHT)[0].url);
-  return events;
-
 };
+

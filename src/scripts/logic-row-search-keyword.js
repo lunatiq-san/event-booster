@@ -1,4 +1,4 @@
-import apiService from './apiService';
+import apiService from './api-service';
 import getRefs from './get-refs';
 import debounce from 'lodash.debounce';
 import eventsTpl from '../templates/events.hbs';
@@ -8,16 +8,14 @@ import { startPagination, options } from './pagination2';
 
 const refs = getRefs();
 
-// const apiService = new NewApiService();
-
 refs.searchQuery.addEventListener('input', debounce(onSearch, 1000));
 
 export function onSearch(e) {
     e.preventDefault();
     apiService.query = e.target.value;
-    if (apiService.query.trim() === '') {
-        return resetPage();
-    }
+    // if (apiService.query.trim() === '') {
+    //     return resetPage();
+    // }
     apiService.fetchEventsDefault().then(events => {
         renderEventsCard(events);
         options.totalItems = apiService.totalElements;
