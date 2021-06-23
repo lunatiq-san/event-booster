@@ -31,6 +31,9 @@
   }
 }
 .footer-text {
+  position: relative;
+  z-index: 100;
+
   @media (max-width: $mobile-max) {
     width: 252px;
     margin-left: auto;
