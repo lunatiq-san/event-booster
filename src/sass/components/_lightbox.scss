@@ -59,14 +59,6 @@
   left: 0;
 }
 
-// .lightbox__overlay {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100vw;
-//   height: 120vh;
-// }
-
 .lightbox__container {
   position: relative;
   top: 0%;
@@ -268,6 +260,7 @@
   padding: 0;
   margin-right: 13px;
   fill: currentColor;
+  background-image: url('../images/ticket1.png');
 
   @media screen and (min-width: 1280px) {
     width: 29px;
