@@ -26,7 +26,7 @@ class ApiService {
       this.findBestImgs(events)
       return events;
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       throw (err = 'Whoops, didn’t find anything. Shall we try to find something else?');
     }
 

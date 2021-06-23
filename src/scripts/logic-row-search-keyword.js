@@ -32,6 +32,6 @@ function renderEventsCard(events) {
     const markup = eventsTpl(events);
     refs.eventsList.innerHTML = markup;
 }
-function resetPage() {
-    apiService.fetchEventsDefault().then(renderEventsCard);
-}
+// function resetPage() {
+//     apiService.fetchEventsDefault().then(renderEventsCard);
+// }
