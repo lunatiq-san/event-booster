@@ -20,7 +20,7 @@
     border-left: 1px solid #212121;
     border-right: 1px solid #212121;
     padding-bottom: 80px;
-     margin-top: -15px;
+    margin-top: -15px;
   }
 }
 
@@ -315,6 +315,8 @@
 
 .error-text {
   @extend %event-name-text;
+  margin-top: 100px;
+
   margin-bottom: 5px;
   flex-grow: 1;
 
