@@ -15,6 +15,11 @@ function onConutrySearch(e) {
   fetchEventsDefault();
 
   refs.countryListContainer.insertAdjacentHTML('beforeend', countryList(countries));
+  refs.countryListContainer.classList.toggle('is-hidden');
+
+  if (!refs.countryListContainer.classList.contains('is-hidden')) {
+    refs.countryListContainer.innerHTML = '';
+  }
 }
 
 function fetchEventsDefault() {
