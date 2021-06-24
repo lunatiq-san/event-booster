@@ -74,13 +74,15 @@
   position: absolute;
   width: 109px;
   height: 101px;
-  right: 0px;
+  right: -10px;
   top: -9px;
 
   border: 1px solid $rose-border-color;
   border-radius: 50px 0px;
 
   @media (min-width: $tablet) {
+    right: 0px;
+
     width: 153px;
     height: 143px;
   }
