@@ -17,6 +17,10 @@
       margin: 0 30px 0 0;
     }
   }
+
+  &:last-child {
+    cursor: pointer;
+  }
 }
 
 .hero-input {
@@ -42,23 +46,3 @@
   right: 30px;
   fill: $secondary-text-color;
 }
-
-.country-list {
-  display: block;
-  position: absolute;
-  top: 40px;
-  left: 0;
-
-  z-index: 200;
-
-  overflow-y: scroll;
-
-  height: 100px;
-  width: 100%;
-}
-
-// .country-list option {
-//   &:hover {
-//     background-color: cadetblue;
-//   }
-// }
