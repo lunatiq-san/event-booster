@@ -57,6 +57,11 @@
   width: 100%;
 }
 
+.country-input-placeholder {
+  display: flex;
+  pointer-events: none;
+}
+
 // .country-list option {
 //   &:hover {
 //     background-color: cadetblue;
