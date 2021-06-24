@@ -20,7 +20,7 @@
     </div>
     <h1 class="hero-title">FIND BEST EVENTS AROUND THE WORLD</h1>
     <fieldset class="hero-field-container">
-      <label class="hero-field">
+      <div class="hero-field">
         <input
           type="text"
           name="searchEvent"
@@ -30,27 +30,19 @@
         <svg class="input-icon" width="12px" height="12px">
           <use href="./images/symbol-defs.svg#vector"></use>
         </svg>
-      </label>
-      <label class="hero-field hero-input choose-country-input">
-        <div class="js-select2">
-          <select
-            name="countryName"
-            style="appearance: none"
-            tabindex="-1"
-            data-choice="active"
-            hidden=""
-          ></select>
-          <span class="country-input-placeholder">Choose country</span>
-          <div class="country-list is-hidden"></div>
-        </div>
-
-        <!-- <select class="hero-form-field select" name="country" id="hero-select">
-              <option value="" disabled selected hidden>Choose country</option>
-            </select> -->
+      </div>
+      <div class="hero-field choose-country-input js-select2">
+        <input
+          type="text"
+          name="searchEvent"
+          placeholder="Start searching"
+          class="hero-input search-input"
+        />
+        <div class="country-list is-hidden"></div>
         <svg class="input-icon" width="15px" height="10px">
           <use href="./images/symbol-defs.svg#polygon"></use>
         </svg>
-      </label>
+      </div>
     </fieldset>
     <div class="header-gradient"></div>
   </div>
