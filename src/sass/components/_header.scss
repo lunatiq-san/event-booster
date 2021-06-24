@@ -4,7 +4,7 @@
 
   background-color: $main-body-color;
   background-image: linear-gradient(to right, $header-gradient-color, $header-gradient-color),
-    url('../../src/images/img_header_mobile.jpg');
+    url('../images/img_header_mobile.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -15,21 +15,21 @@
   screen and (min-resolution: 2dppx) {
   .header {
     background-image: linear-gradient(to right, $header-gradient-color, $header-gradient-color),
-      url('../../src/images/img_header_mobile@2x.jpg');
+      url('../images/img_header_mobile@2x.jpg');
   }
 }
 
 @media screen and (min-width: 701px) {
   .header {
     background-image: linear-gradient(to right, $header-gradient-color, $header-gradient-color),
-      url('../../src/images/img_header_tablet.jpg');
+      url('../images/img_header_tablet.jpg');
   }
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
     .header {
       background-image: linear-gradient(to right, $header-gradient-color, $header-gradient-color),
-        url('../../src/images/img_header_tablet@2x.jpg');
+        url('../images/img_header_tablet@2x.jpg');
     }
   }
 }
@@ -37,14 +37,14 @@
 @media screen and (min-width: 951px) {
   .header {
     background-image: linear-gradient(to right, $header-gradient-color, $header-gradient-color),
-      url('../../src/images/img_header_desktop.jpg');
+      url('../images/img_header_desktop.jpg');
   }
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
     .header {
       background-image: linear-gradient(to right, $header-gradient-color, $header-gradient-color),
-        url('../../src/images/img_header_desktop@2x.jpg');
+        url('../images/img_header_desktop@2x.jpg');
     }
   }
 }
@@ -58,7 +58,6 @@
     padding-bottom: 183px;
   }
   @media screen and (min-width: $desktop) {
-    padding-top: 40px;
     padding-bottom: 192px;
   }
 }

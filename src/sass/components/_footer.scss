@@ -1,8 +1,10 @@
 .footer {
   background-color: $card-paragraph-text;
 }
+
 .footer > .container {
-  padding-bottom: 27px; 
+  padding-top: 27px;
+  padding-bottom: 27px;
   text-align: center;
   color: $secondary-text-color;
   font-family: Montserrat;
@@ -12,24 +14,13 @@
   line-height: 1.21;
 
   @media (min-width: $tablet) {
-    width: 595px;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-top: 18px;
     padding-bottom: 18px;
     font-size: 16px;
     line-height: 1.25;
-    border-left: 1px solid #212121;
-    border-right: 1px solid #212121;
-  }
-  @media (min-width: $desktop) {
-    width: 1050px;
-    padding-left: 60px;
-    padding-right: 60px;
-    border-left: 1px solid #212121;
-    border-right: 1px solid #212121;
-    padding-bottom: 19px;
   }
 }
+
 .footer-text {
   position: relative;
   z-index: 100;
@@ -40,6 +31,7 @@
     margin-right: auto;
   }
 }
+
 .footer-icon {
   font-size: 80%;
   color: #ff0000;
