@@ -1,24 +1,20 @@
-import eventsTpl from '../templates/events.hbs'
-import ApiService from './apiService';
+import eventsTpl from '../templates/events.hbs';
+import apiService from './api-service';
 import getRefs from './get-refs';
-
+import { startPagination, options } from './pagination';
 
 const refs = getRefs();
 
-const apiService = new ApiService();
-
+window.addEventListener('load', fetchEventsDefault);
 
 function fetchEventsDefault() {
-    apiService.fetchEventsDefault().then(events => {
-    
-        renderEvent(events);
-    });
+  apiService.fetchEventsDefault().then(events => {
+    renderEvent(events);
+    options.totalItems = apiService.totalElements;
+    startPagination();
+  });
 }
-
 
 function renderEvent(events) {
-    refs.eventsList.insertAdjacentHTML('beforeend', eventsTpl(events));
+  refs.eventsList.insertAdjacentHTML('beforeend', eventsTpl(events));
 }
-
-
-window.addEventListener('load', fetchEventsDefault);

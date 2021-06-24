@@ -1,8 +1,10 @@
 .footer {
-  background-color: transparent;
-  margin-bottom: 27px;
-  margin-left: auto;
-  margin-right: auto;
+  background-color: $card-paragraph-text;
+}
+
+.footer > .container {
+  padding-top: 27px;
+  padding-bottom: 27px;
   text-align: center;
   color: $secondary-text-color;
   font-family: Montserrat;
@@ -12,21 +14,24 @@
   line-height: 1.21;
 
   @media (min-width: $tablet) {
-    margin-bottom: 18px;
+    padding-top: 18px;
+    padding-bottom: 18px;
     font-size: 16px;
     line-height: 1.25;
   }
-  @media (min-width: $desktop) {
-    margin-bottom: 19px;
-  }
 }
+
 .footer-text {
+  position: relative;
+  z-index: 100;
+
   @media (max-width: $mobile-max) {
     width: 252px;
     margin-left: auto;
     margin-right: auto;
   }
 }
+
 .footer-icon {
   font-size: 80%;
   color: #ff0000;

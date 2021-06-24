@@ -1,14 +1,11 @@
 import Pagination from 'tui-pagination';
 import getRefs from './get-refs';
 import eventsTpl from '../templates/events.hbs';
-import ApiService from './apiService';
+import apiService from './api-service';
 
 const refs = getRefs();
 
-const apiService = new ApiService();
-
-const options = {
-  totalItems: 980,
+export const options = {
   visiblePages: 5,
   itemsPerPage: 20,
   centerAlign: true,
@@ -18,8 +15,6 @@ const options = {
 if (window.innerWidth < 768) {
   options.visiblePages = 3;
 }
-
-startPagination();
 
 function fetchEvents() {
   apiService.fetchEventsDefault().then(events => {
@@ -32,11 +27,11 @@ function renderEvent(events) {
   refs.eventsList.insertAdjacentHTML('beforeend', eventsTpl(events));
 }
 
-function startPagination() {
+export function startPagination() {
   const pagination = new Pagination(refs.paginationContainer, options);
-
+  pagination._options.totalItems = apiService.totalElements;
   pagination.on('beforeMove', ({ page }) => {
-    apiService.setPage(page);
+    apiService.setPage(page - 1);
 
     fetchEvents();
     scrollToTop();

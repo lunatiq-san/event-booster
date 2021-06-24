@@ -8,9 +8,7 @@
   margin-right: auto;
   margin-left: auto;
 
-  @media (min-width: $tablet) {
-    width: 614px;
-  }
+  min-height: 210px;
 
   @media (min-width: $desktop) {
     width: 930px;

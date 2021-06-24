@@ -1,4 +1,5 @@
- <option value="">All countries</option>
- {{#each this}}
-    <option value="{{countryCode}}">{{name}}</option>
+<option selected disabled hidden value=''>Choose country</option>
+<option value=''>All countries</option>
+{{#each this}}
+  <option value='{{countryCode}}'>{{name}}</option>
 {{/each}}
