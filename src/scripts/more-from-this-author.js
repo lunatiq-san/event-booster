@@ -1,7 +1,7 @@
 import eventsTpl from '../templates/events.hbs';
 import apiService from './api-service';
 import getRefs from './get-refs';
-import { startPagination, options } from './pagination2';
+import { startPagination, options } from './pagination';
 
 const refs = getRefs();
 
@@ -11,7 +11,7 @@ function closeLightboxOnClick() {
   refs.lightbox.classList.remove('is-open');
   refs.lightboxContent.innerHTML = ' ';
   document.body.classList.remove('is-hidden');
-};
+}
 
 function onMoreBtnClick(e) {
   e.preventDefault();
@@ -21,53 +21,24 @@ function onMoreBtnClick(e) {
       .textContent.split(' ')
       .slice(0, 2)
       .join('%20');
-    // console.log(eventName);
     apiService.searchQuery = eventName;
     clearEventsList();
-    // fetchEventsByName(eventName);
     fetchEventsByName();
     closeLightboxOnClick();
   }
-};
-
-// function fetchEventsByName(name) {
-//   apiService.fetchEventsByName(name).then(events => {
-//     renderEvent(events);
-
-//   });
-// }
+}
 
 function fetchEventsByName() {
   apiService.fetchEventsDefault().then(events => {
     renderEvent(events);
     options.totalItems = apiService.totalElements;
     startPagination();
-
   });
-};
+}
 
 function renderEvent(events) {
   refs.eventsList.insertAdjacentHTML('beforeend', eventsTpl(events));
 }
-;
 function clearEventsList() {
   refs.eventsList.innerHTML = '';
-};
-// Получить данные с модалки
-
-// по кнопке делать запрос на основании данных с карточки
-
-// вывести релевантные поиску карточки на основной экран
-
-// function startPagination() {
-//   const pagination = new Pagination(refs.paginationContainer, options);
-
-//   pagination.on('beforeMove', ({ page }) => {
-//     apiService.setPage(page);
-//     console.log(page);
-
-//     fetchEvents();
-//   });
-// }
-
-// startPagination();
+}

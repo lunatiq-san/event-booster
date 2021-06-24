@@ -5,21 +5,10 @@
   margin-top: -45px;
 
   @media screen and (min-width: $tablet) {
-    width: 597px;
-    padding-left: 0px;
-    padding-right: 0px;
-    border-left: 1px solid #212121;
-    border-right: 1px solid #212121;
     margin-top: -10px;
   }
 
   @media screen and (min-width: $desktop) {
-    width: 1052px;
-    padding-left: 60px;
-    padding-right: 60px;
-    border-left: 1px solid #212121;
-    border-right: 1px solid #212121;
-    padding-bottom: 80px;
     margin-top: -15px;
   }
 }
@@ -49,11 +38,142 @@
 
   @media (min-width: $desktop) {
     width: 196px;
-    min-height: 312px;
   }
+
   -webkit-animation: bounce-in-top 1.1s 1s both;
   animation: bounce-in-top 1.1s 1s both;
 }
+
+.event-card:hover {
+  transform: scale(1.05);
+}
+
+.event-card:hover .img-trumb {
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $main-pulsar-color,
+    0 0 15px $main-pulsar-color, 0 0 30px $main-pulsar-color, 0 0 20px $main-pulsar-color,
+    0 0 5px $main-pulsar-color;
+  animation-name: pulsate;
+  animation-duration: 1000ms;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.event-card:hover .event-name {
+  color: $main-body-color;
+  text-shadow: $hero-text-color 0px 0px 5px, $hero-text-color 0px 0px 10px,
+    $hero-text-color 0px 0px 15px, $hero-text-color 0px 0px 20px;
+  animation-name: pulsate-text;
+  animation-duration: 1000ms;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.rose-border {
+  position: absolute;
+  width: 109px;
+  height: 101px;
+  right: 0px;
+  top: -9px;
+
+  border: 1px solid $rose-border-color;
+  border-radius: 50px 0px;
+
+  @media (min-width: $tablet) {
+    width: 153px;
+    height: 143px;
+  }
+}
+
+.img-trumb {
+  height: 161px;
+  width: 128px;
+  border-radius: 50% 0 50% 0;
+  overflow: hidden;
+  transition: $timing-function;
+
+  @media (min-width: $tablet) {
+    height: 227px;
+    width: 180px;
+  }
+}
+
+.img-trumb > img {
+  position: relative;
+  z-index: 100;
+
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.event-info {
+  position: relative;
+  z-index: 100;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+}
+
+.event-name {
+  @extend %event-name-text;
+  margin-bottom: 5px;
+
+  @media (min-width: $tablet) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.event-data {
+  @extend %event-date-text;
+  margin-bottom: 5px;
+
+  @media (min-width: $tablet) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.location {
+  @extend %event-place-text;
+  margin-bottom: 5px;
+
+  @media (min-width: $tablet) {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+.location::before {
+  content: url('../images/geo.png');
+  fill: $main-text-color;
+  display: inline-block;
+  width: 7px;
+  height: 10px;
+  margin-right: 3px;
+}
+
+.error-text {
+  @extend %event-name-text;
+  margin-top: 100px;
+  margin-bottom: 5px;
+
+  flex-grow: 1;
+
+  @media (min-width: $tablet) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
 @-webkit-keyframes bounce-in-top {
   0% {
     -webkit-transform: translateY(-200px);
@@ -106,6 +226,7 @@
     animation-timing-function: ease-out;
   }
 }
+
 @keyframes bounce-in-top {
   0% {
     -webkit-transform: translateY(-200px);
@@ -159,21 +280,6 @@
   }
 }
 
-.event-card:hover {
-  transform: scale(1.05);
-}
-
-.event-card:hover .img-trumb {
-  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $main-pulsar-color,
-    0 0 15px $main-pulsar-color, 0 0 30px $main-pulsar-color, 0 0 20px $main-pulsar-color,
-    0 0 5px $main-pulsar-color;
-  animation-name: pulsate;
-  animation-duration: 1000ms;
-  animation-timing-function: ease-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
 @keyframes pulsate {
   0% {
     box-shadow: 0 0 1px $main-text-color, 0 0 2px $main-text-color, 0 0 3px $main-text-color,
@@ -199,141 +305,3 @@
       0 0 20px $main-pulsar-color, 0 0 5px $main-pulsar-color;
   }
 }
-
-.event-card:hover .event-name {
-  color: $main-body-color;
-  text-shadow: $hero-text-color 0px 0px 5px, $hero-text-color 0px 0px 10px,
-    $hero-text-color 0px 0px 15px, $hero-text-color 0px 0px 20px;
-  animation-name: pulsate-text;
-  animation-duration: 1000ms;
-  animation-timing-function: ease-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-.rose-border {
-  position: absolute;
-  width: 109px;
-  height: 101px;
-  right: 0px;
-  top: -9px;
-
-  border: 1px solid $rose-border-color;
-  border-radius: 50px 0px;
-
-  @media (min-width: $tablet) {
-    width: 153px;
-    height: 143px;
-  }
-
-  @media (min-width: $desktop) {
-    width: 153px;
-    height: 143px;
-  }
-}
-
-.img-trumb {
-  height: 161px;
-  width: 128px;
-  border-radius: 50% 0 50% 0;
-  overflow: hidden;
-  transition: $timing-function;
-
-  @media (min-width: $tablet) {
-    height: 227px;
-    width: 180px;
-  }
-
-  @media (min-width: $desktop) {
-    width: 180px;
-    height: 227px;
-  }
-}
-
-.img-trumb > img {
-  position: relative;
-  z-index: 100;
-
-  display: block;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.event-info {
-  position: relative;
-  z-index: 100;
-
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  // width: 138px;
-  padding: 10px;
-}
-
-.event-name {
-  @extend %event-name-text;
-  margin-bottom: 5px;
-
-  @media (min-width: $tablet) {
-    font-size: 16px;
-    line-height: 20px;
-  }
-}
-
-.event-data {
-  @extend %event-date-text;
-  margin-bottom: 5px;
-
-  @media (min-width: $tablet) {
-    font-size: 16px;
-    line-height: 20px;
-  }
-}
-
-.location {
-  @extend %event-place-text;
-  margin-bottom: 5px;
-
-  @media (min-width: $tablet) {
-    font-size: 14px;
-    line-height: 17px;
-  }
-}
-
-.location::before {
-  // content: url(../images/symbol-defs.svg#g-tag);
-  content: url(../images/geo.png);
-  fill: $main-text-color;
-  display: inline-block;
-  width: 7px;
-  height: 10px;
-  margin-right: 3px;
-}
-
-.error-text {
-  @extend %event-name-text;
-  margin-top: 100px;
-
-  margin-bottom: 5px;
-  flex-grow: 1;
-
-  @media (min-width: $tablet) {
-    font-size: 16px;
-    line-height: 20px;
-  }
-}
-
-// .location-icon {
-//   fill: $main-text-color;
-//   width: 7px;
-//   height: 10px;
-//   z-index: 1;
-// }
-
-// .location::before:hover,
-// .location-icon:focus {
-//   fill: $hero-text-color;
-// }

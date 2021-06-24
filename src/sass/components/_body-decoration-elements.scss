@@ -49,9 +49,7 @@
     border: 1px solid $body-decoration-el-color;
   }
 
-  //
   // left circles
-  //
 
   header:before {
     @extend %big-circle;
@@ -102,9 +100,7 @@
     }
   }
 
-  //
   // left square
-  //
 
   .events-gallery > li:nth-child(10):before {
     @extend %square;
@@ -135,9 +131,7 @@
     }
   }
 
-  //
   // left bottom cicles
-  //
 
   footer .container {
     position: relative;
@@ -183,9 +177,7 @@
     }
   }
 
-  //
   //  right square
-  //
 
   .events-gallery > li:nth-child(6):before {
     @extend %square;
@@ -216,9 +208,7 @@
     }
   }
 
-  //
   // right circles
-  //
 
   .events-gallery > li:nth-child(11):before {
     @extend %big-circle;

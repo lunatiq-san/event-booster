@@ -13,23 +13,25 @@ class ApiService {
     this.country = '';
   }
 
-
   async fetchEventsDefault() {
     try {
       this.perPage = onSize();
+
       const url = `${BASE_URL}/events.json?&keyword=${this.searchQuery}&apikey=${KEY}&size=${this.perPage}&page=${this.page}&sort=id,asc&countryCode=${this.country}`;
       const response = await fetch(url);
       const { _embedded, page } = await response.json();
+
       this.totalPages = page.totalPages;
       this.totalElements = page.totalElements;
+
       const { events } = _embedded;
-      this.findBestImgs(events)
+
+      this.findBestImgs(events);
+
       return events;
     } catch (err) {
-      // console.log(err);
       throw (err = 'Whoops, didn’t find anything. Shall we try to find something else?');
     }
-
 
     function onSize() {
       const windowInnerWidth = window.innerWidth;
@@ -45,20 +47,14 @@ class ApiService {
     try {
       const response = await fetch(`${BASE_URL}/events/${this.id}.json?apikey=${KEY}`);
       const currentEvent = await response.json();
+
       this.findBestImg(currentEvent);
+
       return currentEvent;
     } catch (err) {
       console.log(err);
     }
   }
-
-  // fetchEventsByName(name) {
-  //   const url = `${BASE_URL}/events.json?&keyword=${name}&apikey=${KEY}&size=${this.perPage}&page=${this.page}`;
-  //   return fetch(url)
-  //     .then(response => response.json())
-  //     .then(({ _embedded }) => _embedded)
-  //     .then(({ events }) => events);
-  // }
 
   setPage(page) {
     this.page = page;
@@ -73,19 +69,17 @@ class ApiService {
   }
 
   findBestImgs(events) {
-  events.map(this.findBestImg);
-  return events;
-};
+    events.map(this.findBestImg);
+    return events;
+  }
 
-
-
-findBestImg(event) {
-  event.imageUrl = event.images.filter(image => image.width === PROPER_IMG_WIDTH && image.height === PROPER_IMG_HEIGHT)[0].url;
-  return event
-};
-
-
+  findBestImg(event) {
+    event.imageUrl = event.images.filter(
+      image => image.width === PROPER_IMG_WIDTH && image.height === PROPER_IMG_HEIGHT,
+    )[0].url;
+    return event;
+  }
 }
 
-const apiService = new ApiService;
+const apiService = new ApiService();
 export default apiService;

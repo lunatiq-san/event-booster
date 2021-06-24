@@ -10,10 +10,6 @@
 
   min-height: 210px;
 
-  @media (min-width: $tablet) {
-    width: 610px;
-  }
-
   @media (min-width: $desktop) {
     width: 930px;
   }

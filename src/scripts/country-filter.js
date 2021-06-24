@@ -3,7 +3,7 @@ import apiService from './api-service';
 import countryList from '../templates/country-list.hbs';
 import eventsTpl from '../templates/events.hbs';
 import countries from '../templates/countries.json';
-import { startPagination, options } from './pagination2';
+import { startPagination, options } from './pagination';
 
 const refs = getRefs();
 
