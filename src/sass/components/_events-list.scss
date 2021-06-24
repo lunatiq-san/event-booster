@@ -74,13 +74,15 @@
   position: absolute;
   width: 109px;
   height: 101px;
-  right: 0px;
+  right: -10px;
   top: -9px;
 
   border: 1px solid $rose-border-color;
   border-radius: 50px 0px;
 
   @media (min-width: $tablet) {
+    right: 0px;
+
     width: 153px;
     height: 143px;
   }
@@ -304,4 +306,41 @@
       0 0 20px $main-pulsar-color, 0 0 15px $main-pulsar-color, 0 0 30px $main-pulsar-color,
       0 0 20px $main-pulsar-color, 0 0 5px $main-pulsar-color;
   }
+}
+
+.scrollUp-btn {
+  display: none;
+  &.show {
+    position: fixed;
+    z-index: 10;
+    right: 5px;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: $card-paragraph-text;
+    border-radius: 50%;
+    opacity: 0.5;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
+
+    @media (min-width: $tablet) {
+      width: 50px;
+      height: 50px;
+      right: 30px;
+      bottom: 30px;
+    }
+  }
+}
+
+.scrollUp-btn-img {
+  width: 80%;
+  height: 80%;
+  fill: $main-pulsar-color;
 }
