@@ -10,6 +10,5 @@ export default function getRefs() {
     eventCard: document.querySelector('.event-card'),
     moreEventsBtn: document.querySelector('[data-action="more-events"]'),
     searchCountry: document.querySelector('.js-select2'),
-    countryListContainer: document.querySelector('.country-list'),
   };
 }
