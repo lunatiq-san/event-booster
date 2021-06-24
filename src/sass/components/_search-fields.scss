@@ -42,7 +42,11 @@
 
 .input-icon {
   position: absolute;
+
+  pointer-events: none;
+
   top: 15px;
   right: 30px;
   fill: $secondary-text-color;
 }
+
