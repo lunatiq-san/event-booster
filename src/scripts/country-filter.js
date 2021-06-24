@@ -7,13 +7,14 @@ import { startPagination, options } from './pagination';
 
 const refs = getRefs();
 
-refs.searchCountry.insertAdjacentHTML('beforeend', countryList(countries));
-refs.searchCountry.addEventListener('change', onConutrySearch);
+refs.searchCountry.addEventListener('click', onConutrySearch);
 
 function onConutrySearch(e) {
   e.preventDefault();
   apiService.country = e.target.value;
   fetchEventsDefault();
+
+  refs.countryListContainer.insertAdjacentHTML('beforeend', countryList(countries));
 }
 
 function fetchEventsDefault() {

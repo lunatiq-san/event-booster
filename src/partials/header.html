@@ -31,12 +31,22 @@
           <use href="./images/symbol-defs.svg#vector"></use>
         </svg>
       </label>
-      <label class="hero-field">
-        <select
-          class="hero-input choose-country-input js-select2"
-          name="countryName"
-          style="appearance: none"
-        ></select>
+      <label class="hero-field hero-input choose-country-input">
+        <div class="js-select2">
+          <select
+            name="countryName"
+            style="appearance: none"
+            tabindex="-1"
+            data-choice="active"
+            hidden=""
+          ></select>
+          <span>Choose country</span>
+          <div class="country-list"></div>
+        </div>
+
+        <!-- <select class="hero-form-field select" name="country" id="hero-select">
+              <option value="" disabled selected hidden>Choose country</option>
+            </select> -->
         <svg class="input-icon" width="15px" height="10px">
           <use href="./images/symbol-defs.svg#polygon"></use>
         </svg>
