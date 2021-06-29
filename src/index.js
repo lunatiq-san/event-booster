@@ -7,3 +7,4 @@ import './scripts/logic-row-search-keyword';
 import './scripts/more-from-this-author';
 import './scripts/preloader';
 import './scripts/country-filter';
+import './scripts/map';

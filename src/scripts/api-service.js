@@ -56,6 +56,17 @@ class ApiService {
     }
   }
 
+  async searchEventByMap() {
+    try {
+      const response = await fetch(`${BASE_URL}/events/${this.id}.json?apikey=${KEY}`);
+      const currentEvent = await response.json();
+      const geolocation = currentEvent._embedded.venues[0]
+      return geolocation;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   setPage(page) {
     this.page = page;
   }

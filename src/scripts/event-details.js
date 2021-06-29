@@ -8,7 +8,7 @@ const refs = getRefs();
 refs.eventsList.addEventListener('click', openLightboxOnClick);
 
 function openLightboxOnClick(e) {
-  let card = e.target.closest('li');
+  let card = e.target.closest('.img-trumb');
   if (!card) return;
 
   renderEventCard(card);
@@ -18,7 +18,7 @@ function openLightboxOnClick(e) {
 }
 
 function renderEventCard(card) {
-  apiService.id = card.dataset.id;
+  apiService.id = card.parentNode.dataset.id;
   apiService
     .searchEventById()
     .then(currentEvent => {
